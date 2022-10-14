@@ -33,6 +33,10 @@ public class Algorithms
                 mazeAlgorithm = new HuntAndKill();
                 Debug.Log("HuntAndKill");
                 break;
+            case 5:
+                mazeAlgorithm = new RecursiveBacktracker();
+                Debug.Log("RecursiveBacktracker");
+                break;
         }
     }
 
