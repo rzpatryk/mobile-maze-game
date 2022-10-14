@@ -27,7 +27,7 @@ public class MazeManager : MonoBehaviour
     public void createSquareMaze()
     {
         mazeGrid = new SquareGrid(row, column);
-        algorithms.SetAlgorithm(0, 4);
+        algorithms.SetAlgorithm(0, 5);
         algorithms.ExecuteAlgorithm(mazeGrid);
         display.DisplayMaze(mazeGrid);
     }
