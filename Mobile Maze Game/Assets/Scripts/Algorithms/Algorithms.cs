@@ -21,6 +21,10 @@ public class Algorithms
                 mazeAlgorithm = new Sidewinder();
                 Debug.Log("Sidewinder");
                 break;
+            case 2:
+                mazeAlgorithm = new Wilson();
+                Debug.Log("Wilson");
+                break;
         }
     }
 
