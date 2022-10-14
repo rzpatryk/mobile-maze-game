@@ -25,6 +25,10 @@ public class Algorithms
                 mazeAlgorithm = new Wilson();
                 Debug.Log("Wilson");
                 break;
+            case 3:
+                mazeAlgorithm = new AldousBroder();
+                Debug.Log("AldousBroder");
+                break;
         }
     }
 
