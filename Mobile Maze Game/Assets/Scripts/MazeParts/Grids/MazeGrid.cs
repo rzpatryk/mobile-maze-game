@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.MazeParts.Grids
 {
-    public abstract class Grid
+    public abstract class MazeGrid
     {
         private int row;
         private int column;
-        private Cell[][] mazeGrid;
+        private Cell[][] grid;
 
         public int Row { get => row; set => row = value; }
         public int Column { get => column; set => column = value; }
-        public Cell[][] MazeGrid { get => mazeGrid; set => mazeGrid = value; }
+        public Cell[][] Grid { get => grid; set => grid = value; }
 
-        public Grid(int row, int column)
+        public MazeGrid(int row, int column)
         {
             Row = row;
             Column = column;
@@ -35,11 +35,11 @@ namespace Assets.Scripts.MazeParts.Grids
         public virtual int UnvisitedCellsCount()
         {
             int count = 0;
-            for (int i = 0; i < MazeGrid.Length; i++)
+            for (int i = 0; i < Grid.Length; i++)
             {
-                for (int j = 0; j < MazeGrid[i].Length; j++)
+                for (int j = 0; j < Grid[i].Length; j++)
                 {
-                    if (MazeGrid[i][j].IsOn)
+                    if (Grid[i][j].IsOn)
                     {
                         count++;
                     }
@@ -54,9 +54,9 @@ namespace Assets.Scripts.MazeParts.Grids
             {
                 r = GetRandomNumber(0, Row - 1);
                 c = GetRandomNumber(0, Column - 1);
-            } while (!MazeGrid[r][c].IsOn);
+            } while (!Grid[r][c].IsOn);
 
-            return MazeGrid[r][c];
+            return Grid[r][c];
         }
     }
 
