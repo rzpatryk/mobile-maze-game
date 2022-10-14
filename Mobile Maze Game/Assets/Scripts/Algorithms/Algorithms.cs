@@ -14,8 +14,13 @@ public class Algorithms
         switch (rand)
         {
             case 0:
-            mazeAlgorithm = new BinaryTree();
-            break;
+                mazeAlgorithm = new BinaryTree();
+                Debug.Log("BinaryTree");
+                break;
+            case 1:
+                mazeAlgorithm = new Sidewinder();
+                Debug.Log("Sidewinder");
+                break;
         }
     }
 
