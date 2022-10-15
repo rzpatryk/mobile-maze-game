@@ -22,12 +22,10 @@ public class UIFixGridCellSize : MonoBehaviour
         {
             rows = grid.constraintCount;
             columns = elements / rows;
-            float cellSizeX = ((rect.rect.width) / columns) - spacingX;
-            float cellSizeY = ((rect.rect.height) / rows) - spacingY;
+            float cellSizeX = ((rect.rect.width * 0.8f) / columns) - spacingX;
+            float cellSizeY = ((rect.rect.height * 0.8f) / rows) - spacingY;
             grid.cellSize = new Vector2(cellSizeX, cellSizeY);
 
-            /*float cellSize = Mathf.Round((rect.rect.height - (grid.padding.left + grid.padding.right) - (rows - 1)) / columns);
-            grid.cellSize = new Vector2(cellSize, cellSize);*/
         }
         else if(grid.constraint == GridLayoutGroup.Constraint.FixedColumnCount)
         {
@@ -37,7 +35,7 @@ public class UIFixGridCellSize : MonoBehaviour
             grid.cellSize = new Vector2(cellSize, cellSize);
         }
         
-        //grid.cellSize = new Vector2(cellSize, cellSize);
+        
 
         Debug.Log(grid.constraint);
     }

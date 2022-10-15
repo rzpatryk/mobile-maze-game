@@ -18,14 +18,12 @@ public class DisplaySquareMaze : MonoBehaviour
 
     protected virtual void SetCellSize(int row, int col)
     {
-        //float backgroundHeight = BackGround.GetComponent<RectTransform>().rect.height;
-       // float backgroundWidth = BackGround.GetComponent<RectTransform>().rect.width;
         float backgroundHeight = canvas.GetComponent<RectTransform>().rect.height;
         float backgroundWidth = canvas.GetComponent<RectTransform>().rect.width;
-        CellHeight = ((backgroundHeight - 100) / row * canvas.GetComponent<RectTransform>().localScale.y);
-        CellWidth = ((backgroundWidth - 100) / col * canvas.GetComponent<RectTransform>().localScale.x );
-        //cellWidth = ((camWidth / 100) * 0.85f) / Column;
-        //cellHeight = ((camHeight / 100) * 0.9f) / Row;
+        /*CellHeight = ((backgroundHeight - 100) / row * canvas.GetComponent<RectTransform>().localScale.y);
+        CellWidth = ((backgroundWidth - 100) / col * canvas.GetComponent<RectTransform>().localScale.x );*/
+        CellHeight = ((backgroundHeight * 0.9f) / row * canvas.GetComponent<RectTransform>().localScale.y);
+        CellWidth = ((backgroundWidth * 0.8f) / col * canvas.GetComponent<RectTransform>().localScale.x);
     }
 
     public virtual void DisplayMaze(MazeGrid mazeGrid)

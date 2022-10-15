@@ -12,6 +12,7 @@ public class MazeManager : MonoBehaviour
 
 
     public DisplaySquareMaze display;
+    public GameObject GameManager;
 
 
 
@@ -24,11 +25,24 @@ public class MazeManager : MonoBehaviour
         algorithms = new Algorithms();
     }
 
-    public void createSquareMaze()
+    public void CreateSquareMaze()
     {
         mazeGrid = new SquareGrid(row, column);
         algorithms.SetAlgorithm(0, 6);
         algorithms.ExecuteAlgorithm(mazeGrid);
         display.DisplayMaze(mazeGrid);
+        GameManager.GetComponent<GameManager>().StartGame();
+    }
+
+    public void DeleteMaze()
+    {
+        GameObject maze = GameObject.FindGameObjectWithTag("Maze");
+        foreach (Transform child in maze.transform)
+        {
+            if (child.name.Equals("WallPrefab(Clone)"))
+                Destroy(child.gameObject);
+        }
+        GameManager.GetComponent<GameManager>().BackToLevelSelect();
+
     }
 }
