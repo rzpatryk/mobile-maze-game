@@ -39,7 +39,7 @@ public class MazeManager : MonoBehaviour
         GameObject maze = GameObject.FindGameObjectWithTag("Maze");
         foreach (Transform child in maze.transform)
         {
-            if (child.name.Equals("WallPrefab(Clone)"))
+            if (child.name.Equals("WallPrefab(Clone)") || child.name.Equals("Player(Clone)"))
                 Destroy(child.gameObject);
         }
         GameManager.GetComponent<GameManager>().BackToLevelSelect();

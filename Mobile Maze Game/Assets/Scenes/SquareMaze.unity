@@ -4139,6 +4139,7 @@ MonoBehaviour:
   canvas: {fileID: 119576929}
   StartImage: {fileID: 1764685481}
   EndImage: {fileID: 376585330}
+  PlayerPrefab: {fileID: 3908686768436403902, guid: 1ac8db797048ffc448fa074d32145b6a, type: 3}
 --- !u!1001 &1546204031
 PrefabInstance:
   m_ObjectHideFlags: 0

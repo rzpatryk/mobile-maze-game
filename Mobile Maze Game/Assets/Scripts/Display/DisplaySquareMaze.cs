@@ -14,6 +14,9 @@ public class DisplaySquareMaze : MonoBehaviour
     private float cellWidth;
     public GameObject StartImage;
     public GameObject EndImage;
+    public GameObject PlayerPrefab;
+    private GameObject player;
+
 
     public float CellHeight { get => cellHeight; set => cellHeight = value; }
     public float CellWidth { get => cellWidth; set => cellWidth = value; }
@@ -22,8 +25,6 @@ public class DisplaySquareMaze : MonoBehaviour
     {
         float backgroundHeight = canvas.GetComponent<RectTransform>().rect.height;
         float backgroundWidth = canvas.GetComponent<RectTransform>().rect.width;
-        /*CellHeight = ((backgroundHeight - 100) / row * canvas.GetComponent<RectTransform>().localScale.y);
-        CellWidth = ((backgroundWidth - 100) / col * canvas.GetComponent<RectTransform>().localScale.x );*/
         CellHeight = ((backgroundHeight * 0.9f) / row * canvas.GetComponent<RectTransform>().localScale.y);
         CellWidth = ((backgroundWidth * 0.75f) / col * canvas.GetComponent<RectTransform>().localScale.x);
     }
@@ -43,8 +44,6 @@ public class DisplaySquareMaze : MonoBehaviour
                 y2 = ((cell.Row + 1) * CellHeight) - ((mazeGrid.Grid.Length / 2f) * CellHeight);
                 if (i == 0 && j == 0)
                 {
-                    /*CreateStartImage(x1 + CellWidth, y1 + CellHeight);
-                    CreateEndImage(-(x1 + CellWidth), y1 + CellHeight);*/
                     CreateStartImage(x1 - CellWidth/2, y1 + CellHeight/2);
                 }
                 if(i == mazeGrid.Row-1 && j == mazeGrid.Column-1)
@@ -65,7 +64,7 @@ public class DisplaySquareMaze : MonoBehaviour
                         if (i == 0 && j == 0)
                         {
                             CreateWall(new Vector3(x1, y1, -1), new Vector3(x1, y2, -1), "Start");
-                            //CreatePlayer(new Vector3((x1 + CellWidth / 2), (y1 + CellHeight / 2), -2));
+                            CreatePlayer(new Vector3((x1 + CellWidth / 2), (y1 + CellHeight / 2), -2));
                         }
                         else
                         {
@@ -119,5 +118,13 @@ public class DisplaySquareMaze : MonoBehaviour
     {
         EndImage.transform.localPosition = new Vector3(x, y, -1f);
         EndImage.transform.localScale = new Vector2(CellWidth, cellHeight);
+    }
+
+    public void CreatePlayer(Vector3 position)
+    {
+        player = Instantiate(PlayerPrefab, position, Quaternion.identity) as GameObject;
+        player.transform.SetParent(GameObject.FindGameObjectWithTag("Maze").transform, false);
+        player.transform.localScale = new Vector3(CellHeight, CellHeight, 0);
+
     }
 }
