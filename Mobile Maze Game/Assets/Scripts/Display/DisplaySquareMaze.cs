@@ -44,7 +44,7 @@ public class DisplaySquareMaze : MonoBehaviour
                 y2 = ((cell.Row + 1) * CellHeight) - ((mazeGrid.Grid.Length / 2f) * CellHeight);
                 if (i == 0 && j == 0)
                 {
-                    CreateStartImage(x1 - CellWidth/2, y1 + CellHeight/2);
+                    CreateStartImage(x1 - CellWidth/1.5f, y1 + CellHeight/2);
                 }
                 if(i == mazeGrid.Row-1 && j == mazeGrid.Column-1)
                 {
@@ -75,7 +75,7 @@ public class DisplaySquareMaze : MonoBehaviour
                     if (!cell.Neighbours.ContainsKey("East") || (cell.Neighbours.ContainsKey("East") && !(cell.Linked(cell.Neighbours["East"]))))
                     {
                         if (i == mazeGrid.Row - 1 && j == mazeGrid.Column - 1)
-                            CreateWall(new Vector3(x1, y1, -1), new Vector3(x2, y1, -1), "End");
+                            CreateWall(new Vector3(x2, y1, -1), new Vector3(x2, y2, -1), "End");
                         else
                             CreateWall(new Vector3(x2, y1, -1), new Vector3(x2, y2, -1));
                     }

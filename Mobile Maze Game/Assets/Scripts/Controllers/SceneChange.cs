@@ -15,5 +15,10 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("SelectShape");
     }
+
+    public void MainScene()
+    {
+        SceneManager.LoadScene("Main");
+    }
     
 }

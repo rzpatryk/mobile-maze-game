@@ -6,9 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigibody2d;
     private Touch touch;
+    private GameManager gameManager;
 
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         rigibody2d = GetComponent<Rigidbody2D>();
     }
 
@@ -25,5 +27,14 @@ public class PlayerController : MonoBehaviour
                 rigibody2d.MovePosition((Vector2)transform.position + (touch.deltaPosition * 0.5f * Time.deltaTime));
             }
         }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("End"))
+        {
+            gameManager.DisplayFinishScreen();
+        }
+
     }
 }
