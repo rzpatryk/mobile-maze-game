@@ -8,6 +8,7 @@ public class DisplayHexMazeGrid : DisplaySquareMaze
 {
     public override void DisplayMaze(MazeGrid mazeGrid)
     {
+        WallScale = 0.08f;
         SetCellSize(mazeGrid.Row * 2, mazeGrid.Column*2, 0.85f, 1f);
 
 

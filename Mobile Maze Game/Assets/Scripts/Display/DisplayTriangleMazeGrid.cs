@@ -8,6 +8,7 @@ public class DisplayTriangleMazeGrid : DisplaySquareMaze
 {
     public override void DisplayMaze(MazeGrid mazeGrid)
     {
+        WallScale = 0.08f;
         //Column = mazeGrid.Column;
         //Row = mazeGrid.Row;
         SetCellSize(mazeGrid.Row, mazeGrid.Column, 0.9f, 0.72f);

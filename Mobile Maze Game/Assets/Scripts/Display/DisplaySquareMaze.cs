@@ -16,10 +16,12 @@ public class DisplaySquareMaze : MonoBehaviour
     public GameObject EndImage;
     public GameObject PlayerPrefab;
     private GameObject player;
+    private float wallScale;
 
 
     public float CellHeight { get => cellHeight; set => cellHeight = value; }
     public float CellWidth { get => cellWidth; set => cellWidth = value; }
+    public float WallScale { get => wallScale; set => wallScale = value; }
 
     protected virtual void SetCellSize(int row, int col, float heightScale, float widthScale)
     {
@@ -31,6 +33,7 @@ public class DisplaySquareMaze : MonoBehaviour
 
     public virtual void DisplayMaze(MazeGrid mazeGrid)
     {
+        wallScale = 0.08f;
         SetCellSize(mazeGrid.Row, mazeGrid.Column, 0.9f, 0.79f);
         float x1, x2, y1, y2;
         for (int i = 0; i < mazeGrid.Grid.Length; i++)
@@ -99,8 +102,10 @@ public class DisplaySquareMaze : MonoBehaviour
         wall.transform.position = (startPosition + endPosition) / 2;
         wall.transform.rotation = rotation;
         wall.transform.SetParent(GameObject.FindGameObjectWithTag("Maze").transform, false);
-        wall.transform.localScale = new Vector3(CellHeight * 0.08f, distance + CellHeight * 0.08f, 0);
-       
+        //wall.transform.localScale = new Vector3(CellHeight * 0.08f, distance + CellHeight * 0.08f, 0);
+        wall.transform.localScale = new Vector3(CellHeight * wallScale, distance + CellHeight * wallScale, 0);
+
+
         if (startOrEnd != null)
         {
             wall.GetComponent<SpriteRenderer>().color = new Color(wall.GetComponent<SpriteRenderer>().color.r, wall.GetComponent<SpriteRenderer>().color.g, wall.GetComponent<SpriteRenderer>().color.b, 0);
