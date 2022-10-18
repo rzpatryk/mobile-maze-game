@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SquareMaze.unity
     guid: 12f72be1545f8b8479063c401b53f89b
+  - enabled: 1
+    path: Assets/Scenes/TriangleGrid.unity
+    guid: 21381c17865b72a41828c4e49d60a877
   m_configObjects: {}

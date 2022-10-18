@@ -276,7 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateTriangleGrid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -742,8 +742,8 @@ RectTransform:
   - {fileID: 680603478}
   - {fileID: 882685811}
   - {fileID: 1041865272}
-  - {fileID: 1472015383}
   - {fileID: 900483275}
+  - {fileID: 1472015383}
   - {fileID: 1425324942}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -902,7 +902,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1691557137}
         m_TargetAssemblyTypeName: MazeManager, Assembly-CSharp
-        m_MethodName: CreateSquareMaze
+        m_MethodName: CreateTriangleGrid
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1347,7 +1347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateTriangleGrid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -1562,7 +1562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateTriangleGrid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -2184,7 +2184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateTriangleGrid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -2783,7 +2783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateTriangleGrid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -2996,7 +2996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateTriangleGrid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -3186,7 +3186,7 @@ RectTransform:
   m_Children:
   - {fileID: 511657127}
   m_Father: {fileID: 119576930}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.012, y: 0.50277776}
   m_AnchorMax: {x: 0.09557265, y: 0.59914815}
@@ -3712,7 +3712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateTriangleGrid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -3996,7 +3996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateTriangleGrid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -4284,7 +4284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateTriangleGrid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -4508,7 +4508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9189218028338195781, guid: b630788d1357959448ced983d6c4e074, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9189218028338195781, guid: b630788d1357959448ced983d6c4e074, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4645,7 +4645,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1512895986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a15a25924d7d93448a3d15e93f1982b, type: 3}
+  m_Script: {fileID: 11500000, guid: 31339d9fae0b87b4ab1232aec9d7b73a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WallPrefab: {fileID: 4164408876944341383, guid: 9e1f80a992d741d4fbc0fc1f2310e7ec, type: 3}
@@ -4864,7 +4864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateTriangleGrid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -5124,7 +5124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateTriangleGrid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -5701,7 +5701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateTriangleGrid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -5962,5 +5962,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 660436824}
+    - target: {fileID: 7158724794962594431, guid: 368c63a3eed5d1f428c79c761d1d4634, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectShape
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 368c63a3eed5d1f428c79c761d1d4634, type: 3}

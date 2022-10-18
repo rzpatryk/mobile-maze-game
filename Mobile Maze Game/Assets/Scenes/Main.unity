@@ -395,7 +395,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1992694920}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: selectShape
+        m_MethodName: SelectShape
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

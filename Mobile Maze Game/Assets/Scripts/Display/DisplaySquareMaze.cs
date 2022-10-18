@@ -21,17 +21,17 @@ public class DisplaySquareMaze : MonoBehaviour
     public float CellHeight { get => cellHeight; set => cellHeight = value; }
     public float CellWidth { get => cellWidth; set => cellWidth = value; }
 
-    protected virtual void SetCellSize(int row, int col)
+    protected virtual void SetCellSize(int row, int col, float heightScale, float widthScale)
     {
         float backgroundHeight = canvas.GetComponent<RectTransform>().rect.height;
         float backgroundWidth = canvas.GetComponent<RectTransform>().rect.width;
-        CellHeight = ((backgroundHeight * 0.9f) / row * canvas.GetComponent<RectTransform>().localScale.y);
-        CellWidth = ((backgroundWidth * 0.75f) / col * canvas.GetComponent<RectTransform>().localScale.x);
+        CellHeight = ((backgroundHeight * heightScale) / row * canvas.GetComponent<RectTransform>().localScale.y);
+        CellWidth = ((backgroundWidth * widthScale) / col * canvas.GetComponent<RectTransform>().localScale.x);
     }
 
     public virtual void DisplayMaze(MazeGrid mazeGrid)
     {
-        SetCellSize(mazeGrid.Row, mazeGrid.Column);
+        SetCellSize(mazeGrid.Row, mazeGrid.Column, 0.9f, 0.79f);
         float x1, x2, y1, y2;
         for (int i = 0; i < mazeGrid.Grid.Length; i++)
         {
@@ -99,7 +99,7 @@ public class DisplaySquareMaze : MonoBehaviour
         wall.transform.position = (startPosition + endPosition) / 2;
         wall.transform.rotation = rotation;
         wall.transform.SetParent(GameObject.FindGameObjectWithTag("Maze").transform, false);
-        wall.transform.localScale = new Vector3(CellHeight * 0.1f, distance + CellHeight * 0.1f, 0);
+        wall.transform.localScale = new Vector3(CellHeight * 0.08f, distance + CellHeight * 0.08f, 0);
        
         if (startOrEnd != null)
         {

@@ -6,14 +6,19 @@ using UnityEngine.SceneManagement;
 public class SceneChange : MonoBehaviour
 {
 
-    public void squareMaze()
+    public void SquareMaze()
     {
         SceneManager.LoadScene("SquareMaze");
     }
 
-    public void selectShape()
+    public void SelectShape()
     {
         SceneManager.LoadScene("SelectShape");
+    }
+
+    public void TriangleGrid()
+    {
+        SceneManager.LoadScene("TriangleGrid");
     }
 
     public void MainScene()
