@@ -43,6 +43,15 @@ public class MazeManager : MonoBehaviour
         GameManager.GetComponent<GameManager>().StartGame();
     }
 
+    public void CreateHexGrid()
+    {
+        mazeGrid = new HexGrid(row, column);
+        algorithms.SetAlgorithm(2, 6);
+        algorithms.ExecuteAlgorithm(mazeGrid);
+        display.DisplayMaze(mazeGrid);
+        GameManager.GetComponent<GameManager>().StartGame();
+    }
+
     public void DeleteMaze()
     {
         GameObject maze = GameObject.FindGameObjectWithTag("Maze");
