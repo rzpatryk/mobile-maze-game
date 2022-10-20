@@ -60,7 +60,7 @@ namespace Assets.Scripts.MazeParts.Cells
             }
             return unvisitedNeighbours;
         }
-        public List<Cell> GetVisitedNeighbours()
+        public virtual List<Cell> GetVisitedNeighbours()
         {
             List<Cell> VisitedNeighbours = new List<Cell>();
             List<Cell> neighbours = GetNeighbours();

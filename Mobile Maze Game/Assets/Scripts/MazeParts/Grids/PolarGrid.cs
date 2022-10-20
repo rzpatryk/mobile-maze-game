@@ -57,7 +57,11 @@ namespace Assets.Scripts.MazeParts.Grids
                     if (row > 0)
                     {
                         if (col < Grid[row].Length - 1)
+                        {
                             cell.Neighbours.Add("Cw", Grid[row][col + 1]);
+                        }
+
+
                         if (col > 0)
                         {
                             cell.Neighbours.Add("Ccw", Grid[row][col - 1]);
@@ -70,11 +74,27 @@ namespace Assets.Scripts.MazeParts.Grids
                         ratio = Grid[row].Length / Grid[row - 1].Length;
                         v = (col / ratio);
                         PolarCell parent = (PolarCell)Grid[row - 1][v];
+                        //parent.Neighbours.Add("Outward", cell);
                         parent.Outward.Add(cell);
+                        //cell.Neighbours.Add("Inward", parent);
+                        cell.Neighbours.Add("Inward", parent);
                         cell.Inward = parent;
                     }
                 }
             }
+            
+        }
+
+        public override Cell GetRandomCell()
+        {
+            int r, c;
+            do
+            {
+                r = GetRandomNumber(1, Row + 1);
+                c = GetRandomNumber(0, Grid[r].Length);
+            } while (!Grid[r][c].IsOn);
+
+            return Grid[r][c];
         }
     }
 }

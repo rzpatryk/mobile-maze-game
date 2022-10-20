@@ -13,7 +13,9 @@ namespace Assets.Scripts.MazeParts.Cells
         public SquareCell(int row, int col) : base(row, col)
         {
             Neighbours = new Dictionary<string, Cell>();
+            
         }
+
         public override List<Cell> GetNeighbours()
         {
             List<Cell> neighbours = new List<Cell>();

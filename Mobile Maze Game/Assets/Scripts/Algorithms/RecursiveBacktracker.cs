@@ -16,7 +16,9 @@ public class RecursiveBacktracker : IMazeAlgorithm
     {
         unvisitedNeighbours = new List<Cell>();
         cellStack = new Stack<Cell>();
-        cellStack.Push(grid.GetRandomCell());
+        /*cellStack.Push(grid.GetRandomCell());*/
+        cellStack.Push(grid.Grid[0][0]);
+
         while (cellStack.Count > 0 && cellStack.Peek() != null)
         {
             cell = cellStack.Peek();

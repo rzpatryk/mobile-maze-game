@@ -25,5 +25,15 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
+
+    public void HexGrid() {
+        SceneManager.LoadScene("HexGrid");
+    }
+
+    public void CircleMaze()
+    {
+        SceneManager.LoadScene("CircleMaze");
+    }
+
     
 }

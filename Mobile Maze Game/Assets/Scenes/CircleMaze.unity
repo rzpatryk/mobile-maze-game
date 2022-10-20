@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 119576927}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4654,6 +4654,7 @@ MonoBehaviour:
   StartImage: {fileID: 1764685481}
   EndImage: {fileID: 376585330}
   PlayerPrefab: {fileID: 3908686768436403902, guid: 1ac8db797048ffc448fa074d32145b6a, type: 3}
+  TextPrefab: {fileID: 2399561140666962856, guid: f84e761daffb8fb4692d53c182a70e38, type: 3}
 --- !u!1001 &1564584881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5962,5 +5963,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 660436824}
+    - target: {fileID: 7158724794962594431, guid: 368c63a3eed5d1f428c79c761d1d4634, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectShape
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 368c63a3eed5d1f428c79c761d1d4634, type: 3}

@@ -3,10 +3,15 @@ using Assets.Scripts.MazeParts.Grids;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DisplayCircleMaze : DisplaySquareMaze
 {
+
+    public Text TextPrefab;
+    private Text text;
     public override void DisplayMaze(MazeGrid mazeGrid)
     {
         WallScale = 0.04f;
@@ -38,23 +43,28 @@ public class DisplayCircleMaze : DisplaySquareMaze
 
                 if (cell.Row > 0)
                 {
+                   /* text = Instantiate(TextPrefab, new Vector3(((bx*100) + (cx* 100)) / 2, ((by * 100) + (cy * 100)) / 2, 0), Quaternion.identity);
+                    text.transform.SetParent(GameObject.FindGameObjectWithTag("canvas").transform, false);
+                    text.transform.localScale = new Vector3(CellHeight * 2 * 0.20f, CellHeight * 2 * 0.20f, CellHeight * 2* 0.20f);
+                    text.text = "(" + i + ", " + j + ")";*/
                     Vector3 positionA = new Vector3(ax, ay, -1);
                     Vector3 positionB = new Vector3(bx, by, -1);
                     Vector3 positionC = new Vector3(cx, cy, -1);
                     Vector3 positionD = new Vector3(dx, dy, -1);
-                    
+
                     if (i == mazeGrid.Grid.Length - 1)
                     {
                         CreateWall(positionB, positionD);
                     }
-                    if (!cell.Linked(cell.Inward))
+                    if (/*!cell.Linked(cell.Inward)*/!cell.Linked(cell.Neighbours["Inward"]))
                     {
 
                         CreateWall(positionA, positionC);
 
 
                     }
-                    if (cell.Neighbours.ContainsKey("Cw") && !cell.Linked(cell.Neighbours["Cw"]))
+
+                    if ((cell.Neighbours.ContainsKey("Cw") && !(cell.Linked(cell.Neighbours["Cw"]))) || !cell.Neighbours.ContainsKey("Cw"))
                     {
                         CreateWall(positionC, positionD);
                     }

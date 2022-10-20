@@ -17,5 +17,24 @@ namespace Assets.Scripts.MazeParts.Cells
 
         public List<Cell> Outward { get => outward; set => outward = value; }
         public Cell Inward { get => inward; set => inward = value; }
+
+        public override List<Cell> GetNeighbours()
+        {
+            List<Cell> neighbours = new List<Cell>();
+            foreach (Cell cell in Neighbours.Values)
+            {
+                if (cell.Row > 0)
+                    neighbours.Add(cell);
+            }
+            if (Inward != null && Inward.Row > 0)
+                neighbours.Add(Inward);
+            foreach (Cell cell in Outward)
+            {
+                if (cell.Row > 0)
+                    neighbours.Add(cell);
+            }
+
+            return neighbours;
+        }
     }
 }

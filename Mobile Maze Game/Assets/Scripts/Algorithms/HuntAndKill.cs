@@ -20,7 +20,7 @@ public class HuntAndKill : IMazeAlgorithm
         unvisitedNeighbours = new List<Cell>();
 
         current = grid.GetRandomCell();
-        while (current != null)
+        while (current != null )
         {
             unvisitedNeighbours = current.GetUnvisitedNeighbours();
             if (unvisitedNeighbours.Count > 0)
