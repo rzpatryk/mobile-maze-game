@@ -18,8 +18,6 @@ namespace Assets.Scripts.MazeParts.Grids
             Grid = new SquareCell[Row][];
             for (int i = 0; i < (Row / 2) + 1; i++)
             {
-                //if(i < Row / 2)
-                //{
                 int test = ((Column / 2) + 1) + i;
                 Grid[i] = new SquareCell[test];
                 for (int j = 0; j < test; j++)
@@ -48,83 +46,70 @@ namespace Assets.Scripts.MazeParts.Grids
                     int row = cell.Row;
                     int col = cell.Column;
 
-                    //Debug.Log("Row: " + row + ", Column: " + col);
+                  
 
-                    if (isOnGrid(row, col - 1))
+                    if (IsOnGrid(row, col - 1))
                     {
                         cell.Neighbours.Add("West", Grid[row][col - 1]);
-                        //Debug.Log("West: " + row + ", " + (col - 1));
                     }
-                    if (isOnGrid(row, col + 1))
+                    if (IsOnGrid(row, col + 1))
                     {
                         cell.Neighbours.Add("East", Grid[row][col + 1]);
-                        //Debug.Log("East: " + row + ", " + (col + 1));
                     }
 
-                    float test = Grid.Length / 2;
                     if (row < Grid.Length / 2)
                     {
-                        if (isOnGrid(row + 1, col))
+                        if (IsOnGrid(row + 1, col))
                         {
                             cell.Neighbours.Add("NorthWest", Grid[row + 1][col]);
-                            //Debug.Log("NorthWest: " + (row + 1) + ", " + (col));
                         }
-                        if (isOnGrid(row + 1, col + 1))
+                        if (IsOnGrid(row + 1, col + 1))
                         {
                             cell.Neighbours.Add("NorthEast", Grid[row + 1][col + 1]);
-                            //Debug.Log("NorthEast: " + (row + 1) + ", " + (col + 1));
                         }
-                        if (isOnGrid(row - 1, col - 1))
+                        if (IsOnGrid(row - 1, col - 1))
                         {
                             cell.Neighbours.Add("SouthWest", Grid[row - 1][col - 1]);
-                            //Debug.Log("SouthWest: " + (row - 1) + ", " + (col-1));
                         }
 
-                        if (isOnGrid(row - 1, col))
+                        if (IsOnGrid(row - 1, col))
                         {
                             cell.Neighbours.Add("SouthEast", Grid[row - 1][col]);
-                            //Debug.Log("SouthEast: " + (row - 1) + ", " + (col));
                         }
                     }
                     else
                     {
-                        if (isOnGrid(row + 1, col - 1))
+                        if (IsOnGrid(row + 1, col - 1))
                         {
                             cell.Neighbours.Add("NorthWest", Grid[row + 1][col - 1]);
-                            //Debug.Log("NorthWest: " + (row + 1) + ", " + (col-1));
                         }
-                        if (isOnGrid(row + 1, col))
+                        if (IsOnGrid(row + 1, col))
                         {
                             cell.Neighbours.Add("NorthEast", Grid[row + 1][col]);
-                            //Debug.Log("NorthEast: " + (row + 1) + ", " + (col));
                         }
 
                         if (row == (Grid.Length / 2))
                         {
-                            if (isOnGrid(row - 1, col - 1))
+                            if (IsOnGrid(row - 1, col - 1))
                             {
                                 cell.Neighbours.Add("SouthWest", Grid[row - 1][col - 1]);
-                                //Debug.Log("SouthWest: " + (row - 1) + ", " + (col - 1));
                             }
 
-                            if (isOnGrid(row - 1, col))
+                            if (IsOnGrid(row - 1, col))
                             {
                                 cell.Neighbours.Add("SouthEast", Grid[row - 1][col]);
-                                //Debug.Log("SouthEast: " + (row - 1) + ", " + (col));
                             }
                         }
                         else
                         {
-                            if (isOnGrid(row - 1, col))
+                            if (IsOnGrid(row - 1, col))
                             {
                                 cell.Neighbours.Add("SouthWest", Grid[row - 1][col]);
-                                //Debug.Log("SouthWest: " + (row - 1) + ", " + (col));
                             }
 
-                            if (isOnGrid(row - 1, col + 1))
+                            if (IsOnGrid(row - 1, col + 1))
                             {
                                 cell.Neighbours.Add("SouthEast", Grid[row - 1][col + 1]);
-                                //Debug.Log("SouthEast: " + (row - 1) + ", " + (col + 1));
                             }
                         }
                     }
@@ -132,27 +117,5 @@ namespace Assets.Scripts.MazeParts.Grids
                 }
             }
         }
-
-        public override Cell GetRandomCell()
-        {
-            int r, c;
-            do
-            {
-                r = GetRandomNumber(0, Row - 1);
-                c = GetRandomNumber(0, Grid[r].Length);
-            } while (!Grid[r][c].IsOn);
-
-            return Grid[r][c];
-        }
-
-        public bool isOnGrid(int row, int col)
-        {
-            if (row < 0 || row > Row - 1)
-                return false;
-            if (col < 0 || col > Grid[row].Length - 1)
-                return false;
-            return true;
-        }
-
     }
 }

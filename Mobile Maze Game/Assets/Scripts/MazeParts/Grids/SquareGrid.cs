@@ -25,7 +25,6 @@ namespace Assets.Scripts.MazeParts.Grids
                     Grid[r][c] = new SquareCell(r, c);
                 }
             }
-            //MaskGrid();
         }
 
         public override void ConfigureNeighbours()
@@ -35,35 +34,24 @@ namespace Assets.Scripts.MazeParts.Grids
                 for (int c = 0; c < Column; c++)
                 {
                     SquareCell cell = (SquareCell)Grid[r][c];
-                    if (isOnGrid(r - 1, c) && Grid[r - 1][c].IsOn)
+                    if (IsOnGrid(r - 1, c))
                     {
                         cell.Neighbours.Add("South", Grid[r - 1][c]);
                     }
-                    if (isOnGrid(r + 1, c) && Grid[r + 1][c].IsOn)
+                    if (IsOnGrid(r + 1, c))
                     {
                         cell.Neighbours.Add("North", Grid[r + 1][c]);
                     }
-                    if (isOnGrid(r, c + 1) && Grid[r][c].IsOn)
+                    if (IsOnGrid(r, c + 1))
                     {
                         cell.Neighbours.Add("East", Grid[r][c + 1]);
                     }
-                    if (isOnGrid(r, c - 1) && Grid[r][c - 1].IsOn)
+                    if (IsOnGrid(r, c - 1))
                     {
                         cell.Neighbours.Add("West", Grid[r][c - 1]);
                     }
                 }
             }
-        }
-
-        private bool isOnGrid(int row, int col)
-        {
-            if (row < 0 || row > Row - 1)
-                return false;
-            if (col < 0 || col > Column - 1)
-                return false;
-            if (!Grid[row][col].IsOn)
-                return false;
-            return true;
         }
     }
 }

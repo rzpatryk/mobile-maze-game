@@ -46,7 +46,7 @@ namespace Assets.Scripts.MazeParts.Grids
         public override void ConfigureNeighbours()
         {
             int row, col, ratio, v;
-            for (int i = 0; i < Grid.Length; i++)
+            for (int i = 1; i < Grid.Length; i++)
             {
                 for (int j = 0; j < Grid[i].Length; j++)
                 {
@@ -74,25 +74,22 @@ namespace Assets.Scripts.MazeParts.Grids
                         ratio = Grid[row].Length / Grid[row - 1].Length;
                         v = (col / ratio);
                         PolarCell parent = (PolarCell)Grid[row - 1][v];
-                        //parent.Neighbours.Add("Outward", cell);
                         parent.Outward.Add(cell);
-                        //cell.Neighbours.Add("Inward", parent);
                         cell.Neighbours.Add("Inward", parent);
-                        cell.Inward = parent;
+                        
                     }
                 }
             }
-            
+
         }
 
         public override Cell GetRandomCell()
         {
             int r, c;
-            do
-            {
-                r = GetRandomNumber(1, Row + 1);
-                c = GetRandomNumber(0, Grid[r].Length);
-            } while (!Grid[r][c].IsOn);
+
+            r = GetRandomNumber(1, Row + 1);
+            c = GetRandomNumber(0, Grid[r].Length);
+
 
             return Grid[r][c];
         }

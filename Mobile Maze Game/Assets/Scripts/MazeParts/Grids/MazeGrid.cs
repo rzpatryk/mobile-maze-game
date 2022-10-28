@@ -39,24 +39,47 @@ namespace Assets.Scripts.MazeParts.Grids
             {
                 for (int j = 0; j < Grid[i].Length; j++)
                 {
-                    if (Grid[i][j].IsOn)
+                    if (Grid[i][j].Visited == false)
                     {
                         count++;
                     }
                 }
             }
-            return count - 1;
+            return count;
+        }
+
+        public virtual List<Cell> GetUnvisitedCells()
+        {
+            List<Cell> unvisitedCells = new List<Cell>();
+            for (int i = 0; i < Grid.Length; i++)
+            {
+                for (int j = 0; j < Grid[i].Length; j++)
+                {
+                    if (Grid[i][j].Visited == false)
+                    {
+                        unvisitedCells.Add(Grid[i][j]);
+                    }
+                }
+            }
+            return unvisitedCells;
         }
         public virtual Cell GetRandomCell()
         {
             int r, c;
-            do
-            {
-                r = GetRandomNumber(0, Row - 1);
-                c = GetRandomNumber(0, Column - 1);
-            } while (!Grid[r][c].IsOn);
+            r = GetRandomNumber(0, Row - 1);
+            c = GetRandomNumber(0, Grid[r].Length);
+
 
             return Grid[r][c];
+        }
+
+        public bool IsOnGrid(int row, int col)
+        {
+            if (row < 0 || row > Row - 1)
+                return false;
+            if (col < 0 || col > Grid[row].Length - 1)
+                return false;
+            return true;
         }
     }
 

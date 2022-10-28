@@ -11,7 +11,7 @@ namespace Assets.Scripts.MazeParts.Grids
     {
         public HexGrid(int row, int column) : base(row, column)
         {
-          
+
         }
 
         public override void PrepareGrid()
@@ -28,7 +28,6 @@ namespace Assets.Scripts.MazeParts.Grids
         }
         public override void ConfigureNeighbours()
         {
-            int north_diagonal, south_diagonal;
             for (int i = 0; i < Grid.Length; i++)
             {
                 for (int j = 0; j < Grid[i].Length; j++)
@@ -36,55 +35,55 @@ namespace Assets.Scripts.MazeParts.Grids
                     SquareCell cell = (SquareCell)Grid[i][j];
                     int row = cell.Row;
                     int col = cell.Column;
-                    if (cell.IsOn)
+
+                    if (col % 2 == 0)
                     {
-                        if (col % 2 == 0)
+                        if(IsOnGrid(row-1, col - 1))
                         {
-                            north_diagonal = row;
-                            south_diagonal = row - 1;
-                            if (row > 0)
-                            {
-                                if (col > 0 && Grid[south_diagonal][col - 1].IsOn)
-                                    cell.Neighbours.Add("SouthWest", Grid[south_diagonal][col - 1]);
-
-
-                                if (col < Column - 1 && Grid[south_diagonal][col + 1].IsOn)
-                                    cell.Neighbours.Add("SouthEast", Grid[south_diagonal][col + 1]);
-                            }
-                            if (col > 0 && Grid[north_diagonal][col - 1].IsOn)
-                                cell.Neighbours.Add("NorthWest", Grid[north_diagonal][col - 1]);
-
-
-                            if (col < Column - 1 && Grid[north_diagonal][col + 1].IsOn)
-                                cell.Neighbours.Add("NorthEast", Grid[north_diagonal][col + 1]);
+                            cell.Neighbours.Add("SouthWest", Grid[row-1][col - 1]);
                         }
-                        else
+                        if(IsOnGrid(row-1, col + 1))
                         {
-                            north_diagonal = row + 1;
-                            south_diagonal = row;
-
-                            if (row < Row - 1)
-                            {
-                                if (col > 0 && Grid[north_diagonal][col - 1].IsOn)
-                                    cell.Neighbours.Add("NorthWest", Grid[north_diagonal][col - 1]);
-
-
-                                if (col < Column - 1 && Grid[north_diagonal][col + 1].IsOn)
-                                    cell.Neighbours.Add("NorthEast", Grid[north_diagonal][col + 1]);
-
-                            }
-                            if (col > 0 && Grid[south_diagonal][col - 1].IsOn)
-                                cell.Neighbours.Add("SouthWest", Grid[south_diagonal][col - 1]);
-
-                            if (col < Column - 1 && Grid[south_diagonal][col + 1].IsOn)
-                                cell.Neighbours.Add("SouthEast", Grid[south_diagonal][col + 1]);
+                            cell.Neighbours.Add("SouthEast", Grid[row-1][col + 1]);
                         }
-                        if (row > 0 && Grid[row - 1][col].IsOn)
-                            cell.Neighbours.Add("South", Grid[row - 1][col]);
+                        if(IsOnGrid(row, col - 1))
+                        {
+                            cell.Neighbours.Add("NorthWest", Grid[row][col - 1]);
+                        }
+                        if(IsOnGrid(row, col+1))
+                        {
+                            cell.Neighbours.Add("NorthEast", Grid[row][col + 1]);
+                        }
 
-                        if (row < Row - 1 && Grid[row + 1][col].IsOn)
-                            cell.Neighbours.Add("North", Grid[row + 1][col]);
                     }
+                    else
+                    {
+                        if(IsOnGrid(row+1, col - 1))
+                        {
+                            cell.Neighbours.Add("NorthWest", Grid[row+1][col - 1]);
+                        }
+                        if(IsOnGrid(row+1, col+1))
+                        {
+                            cell.Neighbours.Add("NorthEast", Grid[row+1][col + 1]);
+                        }
+                        if(IsOnGrid(row, col - 1))
+                        {
+                            cell.Neighbours.Add("SouthWest", Grid[row][col - 1]);
+                        }
+                        if (IsOnGrid(row, col + 1))
+                        {
+                            cell.Neighbours.Add("SouthEast", Grid[row][col + 1]);
+                        }
+                    }
+                    if(IsOnGrid(row-1, col))
+                    {
+                        cell.Neighbours.Add("South", Grid[row - 1][col]);
+                    }
+                    if(IsOnGrid(row+1, col))
+                    {
+                        cell.Neighbours.Add("North", Grid[row + 1][col]);
+                    }
+
                 }
             }
         }
