@@ -11,18 +11,18 @@ namespace Assets.Scripts.MazeParts.Cells
         private int row;
         private int column;
         private List<Cell> links;
-        private bool isOn;
+        private bool visited;
 
         public int Row { get => row; set => row = value; }
         public int Column { get => column; set => column = value; }
         public List<Cell> Links { get => links; set => links = value; }
-        public bool IsOn { get => isOn; set => isOn = value; }
+        public bool Visited { get => visited; set => visited = value; }
 
         protected Cell(int row, int column)
         {
             Row = row;
             Column = column;
-            IsOn = true;
+            Visited = false;
             Links = new List<Cell>();
         }
 
@@ -51,11 +51,11 @@ namespace Assets.Scripts.MazeParts.Cells
         {
             List<Cell> unvisitedNeighbours = new List<Cell>();
             List<Cell> neighbours = GetNeighbours();
-            for (int i = 0; i < neighbours.Count; i++)
+            foreach(Cell cell in neighbours)
             {
-                if (neighbours[i].Links.Count == 0)
+                if (cell.Visited == false)
                 {
-                    unvisitedNeighbours.Add(neighbours[i]);
+                    unvisitedNeighbours.Add(cell);
                 }
             }
             return unvisitedNeighbours;
@@ -64,11 +64,11 @@ namespace Assets.Scripts.MazeParts.Cells
         {
             List<Cell> VisitedNeighbours = new List<Cell>();
             List<Cell> neighbours = GetNeighbours();
-            for (int i = 0; i < neighbours.Count; i++)
+            foreach (Cell cell in neighbours)
             {
-                if (neighbours[i].Links.Count != 0)
+                if (cell.Visited)
                 {
-                    VisitedNeighbours.Add(neighbours[i]);
+                    VisitedNeighbours.Add(cell);
                 }
             }
             return VisitedNeighbours;

@@ -24,16 +24,12 @@ namespace Assets.Scripts.MazeParts.Cells
         }
         public override List<Cell> GetNeighbours()
         {
-            List<Cell> negbours = new List<Cell>();
-            if (Neighbours.ContainsKey("West") )
-                negbours.Add(Neighbours["West"]);
-            if (Neighbours.ContainsKey("East") )
-                negbours.Add(Neighbours["East"]);
-            if (!Upright() && Neighbours.ContainsKey("North"))
-                negbours.Add(Neighbours["North"]);
-            if (Upright() && Neighbours.ContainsKey("South"))
-                negbours.Add(Neighbours["South"]);
-            return negbours;
+            List<Cell> neighbours = new List<Cell>();
+            foreach (Cell cell in Neighbours.Values)
+            {
+                neighbours.Add(cell);
+            }
+            return neighbours;
 
         }
     }
