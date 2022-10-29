@@ -12,31 +12,25 @@ public class BinaryTree : IMazeAlgorithm
     private List<Cell> neighbors = new List<Cell>();
     public void CreateMaze(MazeGrid grid)
     {
-        //int randomNbr;
-        //List<Cell> neighbors = new List<Cell>();
         for (int i = 0; i < grid.Grid.Length; i++)
         {
             for (int j = 0; j < grid.Grid[i].Length; j++)
             {
-                SquareCell cell = (SquareCell)grid.Grid[i][j];
-                if (cell.IsOn)
+                Cell cell = grid.Grid[i][j];
+                cell.Visited = true;
+                if (cell.Neighbours.ContainsKey("North"))
+                    neighbors.Add(cell.Neighbours["North"]);
+
+                if (cell.Neighbours.ContainsKey("East"))
+                    neighbors.Add(cell.Neighbours["East"]);
+
+                if (neighbors.Count > 0)
                 {
-                    if (cell.Neighbours.ContainsKey("North"))
-                        neighbors.Add(cell.Neighbours["North"]);
-
-                    if (cell.Neighbours.ContainsKey("East"))
-                        neighbors.Add(cell.Neighbours["East"]);
-
-                    if (neighbors.Count > 0)
-                    {
-                        randomNbr = grid.GetRandomNumber(0, neighbors.Count);
-                        Cell neighbor = neighbors[randomNbr];
-                        cell.Link(neighbor, true);
-                    }
-                    neighbors.Clear();
+                    randomNbr = grid.GetRandomNumber(0, neighbors.Count);
+                    Cell neighbor = neighbors[randomNbr];
+                    cell.Link(neighbor, true);
                 }
-
-
+                neighbors.Clear();
             }
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.MazeParts.Cells
 {
-    public class TriangleCell : SquareCell
+    public class TriangleCell : Cell
     {
         public TriangleCell(int row, int col) : base(row, col)
         {
@@ -21,16 +21,6 @@ namespace Assets.Scripts.MazeParts.Cells
         public bool Upright()
         {
             return (Row + Column) % 2 == 0;
-        }
-        public override List<Cell> GetNeighbours()
-        {
-            List<Cell> neighbours = new List<Cell>();
-            foreach (Cell cell in Neighbours.Values)
-            {
-                neighbours.Add(cell);
-            }
-            return neighbours;
-
         }
     }
 }

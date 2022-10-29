@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.MazeParts.Cells
 {
-    public class PolarCell : SquareCell
+    public class PolarCell : Cell
     {
         private List<Cell> outward;
         

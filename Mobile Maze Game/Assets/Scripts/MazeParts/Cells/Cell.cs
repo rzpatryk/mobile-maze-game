@@ -6,27 +6,38 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.MazeParts.Cells
 {
-    public abstract class Cell
+    public class Cell
     {
         private int row;
         private int column;
         private List<Cell> links;
+        private Dictionary<string, Cell> neighbours;
         private bool visited;
 
         public int Row { get => row; set => row = value; }
         public int Column { get => column; set => column = value; }
         public List<Cell> Links { get => links; set => links = value; }
         public bool Visited { get => visited; set => visited = value; }
+        public Dictionary<string, Cell> Neighbours { get => neighbours; set => neighbours = value; }
 
-        protected Cell(int row, int column)
+        public Cell(int row, int column)
         {
             Row = row;
             Column = column;
             Visited = false;
             Links = new List<Cell>();
+            Neighbours = new Dictionary<string, Cell>();
         }
 
-        public abstract List<Cell> GetNeighbours();
+        public virtual List<Cell> GetNeighbours()
+        {
+            List<Cell> neighbours = new List<Cell>();
+            foreach (Cell cell in Neighbours.Values)
+            {
+                neighbours.Add(cell);
+            }
+            return neighbours;
+        }
 
         public void Link(Cell cell, bool bidirectional)
         {

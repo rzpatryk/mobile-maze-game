@@ -16,13 +16,13 @@ namespace Assets.Scripts.MazeParts.Grids
 
         public override void PrepareGrid()
         {
-            Grid = new SquareCell[Row][];
+            Grid = new Cell[Row][];
             for (int i = 0; i < Row; i++)
             {
-                Grid[i] = new SquareCell[Column];
+                Grid[i] = new Cell[Column];
                 for (int j = 0; j < Column; j++)
                 {
-                    Grid[i][j] = new SquareCell(i, j);
+                    Grid[i][j] = new Cell(i, j);
                 }
             }
         }
@@ -32,7 +32,7 @@ namespace Assets.Scripts.MazeParts.Grids
             {
                 for (int j = 0; j < Grid[i].Length; j++)
                 {
-                    SquareCell cell = (SquareCell)Grid[i][j];
+                    Cell cell = Grid[i][j];
                     int row = cell.Row;
                     int col = cell.Column;
 
