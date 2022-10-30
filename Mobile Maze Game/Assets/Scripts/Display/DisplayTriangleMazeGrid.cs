@@ -15,7 +15,7 @@ public class DisplayTriangleMazeGrid : DisplaySquareMaze
         float width = CellWidth;
 
         float height = CellHeight;
-        float halfHeight = CellHeight/2;
+        float halfHeight = CellHeight / 2;
         float cx, cy;
         float westX, midX, eastX;
         float apexY, baseY;
@@ -54,45 +54,44 @@ public class DisplayTriangleMazeGrid : DisplaySquareMaze
                     CreateEndImage((eastX), (apexY));
                 }
 
-                    if (cell.IsOn)
+
+                if (!cell.Neighbours.ContainsKey("West"))
                 {
-                    if (!cell.Neighbours.ContainsKey("West"))
+                    positionA = new Vector3(westX, baseY, -1);
+                    positionB = new Vector3(midX, apexY, -1);
+                    if (i == 0 && j == 0)
                     {
-                        positionA = new Vector3(westX, baseY, -1);
-                        positionB = new Vector3(midX, apexY, -1);
-                        if (i == 0 && j == 0)
-                        {
-                            CreateWall(positionA, positionB, "Start");
-                            CreatePlayer(new Vector3((midX), (baseY + halfHeight), -2));
-                        }
-
-                        else
-                            CreateWall(positionA, positionB);
-
-                    }
-                    if (!cell.Neighbours.ContainsKey("East") || (cell.Neighbours.ContainsKey("East") && !cell.Linked(cell.Neighbours["East"])))
-                    {
-                        positionA = new Vector3(eastX, baseY, -1);
-                        positionB = new Vector3(midX, apexY, -1);
-                        if (i == mazeGrid.Row - 1 && j == mazeGrid.Column - 1)
-                            CreateWall(positionA, positionB, "End");
-                        else
-                            CreateWall(positionA, positionB);
+                        CreateWall(positionA, positionB, "Start");
+                        CreatePlayer(new Vector3((midX), (baseY + halfHeight), -2));
                     }
 
-                    bool no_north = (!cell.Upright() && !cell.Neighbours.ContainsKey("North"));
-                    bool not_linked = (cell.Upright() && !cell.Neighbours.ContainsKey("South")) || (cell.Neighbours.ContainsKey("South") && !cell.Linked(cell.Neighbours["South"]));
-
-                    if (not_linked || no_north)
-                    {
-                        positionA = new Vector3(eastX, baseY, -1);
-                        positionB = new Vector3(westX, baseY, -1);
+                    else
                         CreateWall(positionA, positionB);
-                        //else if (mazeGrid.Row % 2 != 0 && (i == mazeGrid.Row - 3 && j == mazeGrid.Column - 2))
-                        //CreateWall(positionA, positionB, "End");
 
-                    }
                 }
+                if (!cell.Neighbours.ContainsKey("East") || (cell.Neighbours.ContainsKey("East") && !cell.Linked(cell.Neighbours["East"])))
+                {
+                    positionA = new Vector3(eastX, baseY, -1);
+                    positionB = new Vector3(midX, apexY, -1);
+                    if (i == mazeGrid.Row - 1 && j == mazeGrid.Column - 1)
+                        CreateWall(positionA, positionB, "End");
+                    else
+                        CreateWall(positionA, positionB);
+                }
+
+                bool no_north = (!cell.Upright() && !cell.Neighbours.ContainsKey("North"));
+                bool not_linked = (cell.Upright() && !cell.Neighbours.ContainsKey("South")) || (cell.Neighbours.ContainsKey("South") && !cell.Linked(cell.Neighbours["South"]));
+
+                if (not_linked || no_north)
+                {
+                    positionA = new Vector3(eastX, baseY, -1);
+                    positionB = new Vector3(westX, baseY, -1);
+                    CreateWall(positionA, positionB);
+                    //else if (mazeGrid.Row % 2 != 0 && (i == mazeGrid.Row - 3 && j == mazeGrid.Column - 2))
+                    //CreateWall(positionA, positionB, "End");
+
+                }
+
 
             }
         }

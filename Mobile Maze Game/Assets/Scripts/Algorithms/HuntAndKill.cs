@@ -10,18 +10,20 @@ public class HuntAndKill : IMazeAlgorithm
 {
     private Cell current;
     private Cell neighbour;
-
+    private Cell cell;
     private List<Cell> visitedNeighbours;
     private List<Cell> unvisitedNeighbours;
+    private List<Cell> unvisitedCells;
     private int number;
     public void CreateMaze(MazeGrid grid)
     {
         visitedNeighbours = new List<Cell>();
         unvisitedNeighbours = new List<Cell>();
-
+        unvisitedCells = new List<Cell>(); ;
         current = grid.GetRandomCell();
-        while (current != null )
+        while (current != null)
         {
+            current.Visited = true;
             unvisitedNeighbours = current.GetUnvisitedNeighbours();
             if (unvisitedNeighbours.Count > 0)
             {
@@ -33,26 +35,25 @@ public class HuntAndKill : IMazeAlgorithm
             else
             {
                 current = null;
-
-                for (int r = 0; r < grid.Grid.Length; r++)
+                int index = 0;
+                unvisitedCells = grid.GetUnvisitedCells();
+                while (current == null && index < unvisitedCells.Count())
                 {
-                    for (int c = 0; c < grid.Grid[r].Length; c++)
+                    cell = unvisitedCells[index];
+                    visitedNeighbours = cell.GetVisitedNeighbours();
+                    if (cell.Visited == false  && visitedNeighbours.Count() > 0)
                     {
-                        if (grid.Grid[r][c].IsOn)
-                        {
-                            visitedNeighbours = grid.Grid[r][c].GetVisitedNeighbours();
-                            if (grid.Grid[r][c].Links.Count() == 0 && visitedNeighbours.Count() > 0)
-                            {
-                                current = grid.Grid[r][c];
-                                number = grid.GetRandomNumber(0, visitedNeighbours.Count());
-                                neighbour = visitedNeighbours[number];
-                                current.Link(neighbour, true);
-                            }
-
-                            visitedNeighbours.Clear();
-                        }
+                        current = cell;
                     }
+                    index++;
                 }
+                if (current!=null)
+                {
+                    number = grid.GetRandomNumber(0, visitedNeighbours.Count());
+                    neighbour = visitedNeighbours[number];
+                    current.Link(neighbour, true);
+                }
+                visitedNeighbours.Clear();
             }
             unvisitedNeighbours.Clear();
         }

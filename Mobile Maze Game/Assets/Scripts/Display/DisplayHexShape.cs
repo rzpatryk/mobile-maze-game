@@ -12,33 +12,28 @@ public class DisplayHexShape : DisplaySquareMaze
     private Text text;
     public override void DisplayMaze(MazeGrid mazeGrid)
     {
-        WallScale = 0.08f;
+        WallScale = 0.1f;
 
         
         SetCellSize(mazeGrid.Row, mazeGrid.Column, 0.9f, 0.9f);
 
         float size2 = CellHeight/4f;
         float size = CellHeight + 1.2f *size2;
-        Debug.Log(CellHeight);
-
+     
         float cx, cy;
-        /*
-                float a_size = size / 2;
-                float b_size = size;
-                float height = b_size * 2f;
-                float test = (float)(size * Math.Sqrt(3) / 2);*/
+      
         float a_size = size / 4;
-        //float b_size = (float)(size/2 * Math.Sqrt(3) / 2);
+    
         float b_size = size/2;
         float height = b_size * 2f;
         Vector3 positionA;
         Vector3 positionB;
-        int index = 0;
+
         for (int i = 0; i < mazeGrid.Grid.Length; i++)
         {
             for (int j = 0; j < mazeGrid.Grid[i].Length; j++)
             {
-                SquareCell cell = (SquareCell)mazeGrid.Grid[i][j];
+                Cell cell = mazeGrid.Grid[i][j];
                 cx = (b_size + cell.Column *height)- ((mazeGrid.Grid[i].Length / 2f) * height);
                 cy = size/2 + 3 *  cell.Row * a_size - ((mazeGrid.Row/2f * size) - mazeGrid.Row/2f * a_size) - a_size/2;
 
@@ -65,17 +60,6 @@ public class DisplayHexShape : DisplaySquareMaze
                     positionA = new Vector3(x_west_north, y_west_north, -1);
                     positionB = new Vector3(x_west_south, y_west_south, -1);
                     CreateWall(positionA, positionB);
-                  /*  text = Instantiate(TextPrefab, new Vector3(x_west_north * 100, y_west_north * 100, 0), Quaternion.identity);
-                    text.transform.SetParent(GameObject.FindGameObjectWithTag("canvas").transform, false);
-                    text.transform.localScale = new Vector3(CellHeight * 2 * 0.20f, CellHeight * 2 * 0.20f, CellHeight * 2 * 0.20f);
-                    text.text = index.ToString();
-                    index++;
-
-                    text = Instantiate(TextPrefab, new Vector3(x_west_south * 100, y_west_south * 100, 0), Quaternion.identity);
-                    text.transform.SetParent(GameObject.FindGameObjectWithTag("canvas").transform, false);
-                    text.transform.localScale = new Vector3(CellHeight * 2 * 0.20f, CellHeight * 2 * 0.20f, CellHeight * 2 * 0.20f);
-                    text.text = index.ToString();
-                    index++;*/
                 }
                 if ((!cell.Neighbours.ContainsKey("East")))
                 {

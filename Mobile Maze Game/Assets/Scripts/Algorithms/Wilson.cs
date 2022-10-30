@@ -1,10 +1,8 @@
 ﻿using Assets.Scripts.MazeParts.Cells;
 using Assets.Scripts.MazeParts.Grids;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 public class Wilson : IMazeAlgorithm
 {
@@ -17,15 +15,8 @@ public class Wilson : IMazeAlgorithm
     private List<Cell> path = new List<Cell>();
     private List<Cell> neighbors = new List<Cell>();
     public void CreateMaze(MazeGrid grid)
-    { 
-        for (int i = 0; i < grid.Grid.Length; i++)
-        {
-            for (int j = 0; j < grid.Grid[i].Length; j++)
-            {
-                if (grid.Grid[i][j].IsOn)
-                    unvisited.Add(grid.Grid[i][j]);
-            }
-        }
+    {
+        unvisited = grid.GetUnvisitedCells();
 
         first = unvisited[grid.GetRandomNumber(0, unvisited.Count())];
         unvisited.Remove(first);
@@ -37,7 +28,7 @@ public class Wilson : IMazeAlgorithm
             while (unvisited.Contains(cell))
             {
                 neighbors = cell.GetNeighbours();
-                random = grid.GetRandomNumber(0, neighbors.Count);
+                random = grid.GetRandomNumber(0, neighbors.Count());
                 cell = neighbors[random];
                 if (path.Contains(cell))
                 {

@@ -14,7 +14,7 @@ public class DisplayCircleMaze : DisplaySquareMaze
     private Text text;
     public override void DisplayMaze(MazeGrid mazeGrid)
     {
-        WallScale = 0.04f;
+        WallScale = 0.08f;
         float theta, inner_radius, outer_radius, theta_ccw, theta_cw;
         float ax, ay, bx, by, cx, cy, dx, dy;
         SetCellSize(mazeGrid.Row+1, mazeGrid.Column, 0.95f, 0);
@@ -56,7 +56,7 @@ public class DisplayCircleMaze : DisplaySquareMaze
                     {
                         CreateWall(positionB, positionD);
                     }
-                    if (/*!cell.Linked(cell.Inward)*/!cell.Linked(cell.Neighbours["Inward"]))
+                    if (i == 1 || !cell.Linked(cell.Neighbours["Inward"]))
                     {
 
                         CreateWall(positionA, positionC);
