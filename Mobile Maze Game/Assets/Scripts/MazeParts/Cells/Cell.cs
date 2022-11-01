@@ -1,8 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.MazeParts.Path;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assets.Scripts.MazeParts.Cells
 {
@@ -83,6 +80,36 @@ namespace Assets.Scripts.MazeParts.Cells
                 }
             }
             return VisitedNeighbours;
+        }
+
+        public Distance Distances()
+        {
+            Distance distances = new Distance(this);
+            List<Cell> frontier = new List<Cell>();
+            List<Cell> links;
+            frontier.Add(this);
+
+            while (frontier.Count > 0)
+            {
+                List<Cell> newFrontier = new List<Cell>();
+                foreach (Cell cell in frontier)
+                {
+                    links = cell.Links;
+                    foreach (Cell linked in links)
+                    {
+                        if (distances.CellIn(linked))
+                        {
+                            continue;
+                        }
+                        int index = distances.GetValue(cell);
+
+                        distances.AddCell(linked, index + 1);
+                        newFrontier.Add(linked);
+                    }
+                    frontier = newFrontier;
+                }
+            }
+            return distances;
         }
     }
 }
