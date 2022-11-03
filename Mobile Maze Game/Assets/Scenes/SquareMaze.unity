@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 119576927}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4654,6 +4654,7 @@ MonoBehaviour:
   StartImage: {fileID: 1764685481}
   EndImage: {fileID: 376585330}
   PlayerPrefab: {fileID: 3908686768436403902, guid: 1ac8db797048ffc448fa074d32145b6a, type: 3}
+  textPrefab: {fileID: 9050494624213461901, guid: 3ad2712736eb6e04aa1f0e6fee0830fe, type: 3}
 --- !u!1001 &1564584881
 PrefabInstance:
   m_ObjectHideFlags: 0
