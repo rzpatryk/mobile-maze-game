@@ -45,42 +45,54 @@ namespace Assets.Scripts.MazeParts.Grids
 
         public override void ConfigureNeighbours()
         {
-            int row, col, ratio, v;
+            int ratio, v;
             for (int i = 1; i < Grid.Length; i++)
             {
                 for (int j = 0; j < Grid[i].Length; j++)
                 {
                     PolarCell cell = (PolarCell)Grid[i][j];
-                    row = cell.Row;
-                    col = cell.Column;
-
-                    if (row > 0)
+                    if (i > 0)
                     {
-                        if (col < Grid[row].Length - 1)
+                        if (j < Grid[i].Length - 1)
                         {
-                            cell.Neighbours.Add("Cw", Grid[row][col + 1]);
+                            cell.Neighbours.Add("Cw", Grid[i][j + 1]);
                         }
 
 
-                        if (col > 0)
+                        if (j > 0)
                         {
-                            cell.Neighbours.Add("Ccw", Grid[row][col - 1]);
+                            cell.Neighbours.Add("Ccw", Grid[i][j - 1]);
                         }
                         else
                         {
-                            cell.Neighbours.Add("Ccw", Grid[row][col]);
+                            cell.Neighbours.Add("Ccw", Grid[i][j]);
                         }
-
-                        ratio = Grid[row].Length / Grid[row - 1].Length;
-                        v = (col / ratio);
-                        PolarCell parent = (PolarCell)Grid[row - 1][v];
-                        parent.Outward.Add(cell);
-                        cell.Neighbours.Add("Inward", parent);
+                        if (i > 1)
+                        {
+                            ratio = Grid[i].Length / Grid[i - 1].Length;
+                            v = (j / ratio);
+                            PolarCell parent = (PolarCell)Grid[i - 1][v];
+                            parent.Outward.Add(cell);
+                            cell.Neighbours.Add("Inward", parent);
+                        }
                         
                     }
                 }
             }
 
+        }
+
+        public override List<Cell> GetUnvisitedCells()
+        {
+            List<Cell> unvisitedCells = base.GetUnvisitedCells();
+            unvisitedCells.Remove(Grid[0][0]);
+            return unvisitedCells;
+        }
+
+        public override int UnvisitedCellsCount()
+        {
+            int count = base.UnvisitedCellsCount();
+            return count - 1;
         }
 
         public override Cell GetRandomCell()

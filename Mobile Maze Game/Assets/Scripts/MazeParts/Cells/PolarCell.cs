@@ -23,12 +23,10 @@ namespace Assets.Scripts.MazeParts.Cells
             List<Cell> neighbours = new List<Cell>();
             foreach (Cell cell in Neighbours.Values)
             {
-                if (cell.Row > 0)
                     neighbours.Add(cell);
             }
             foreach (Cell cell in Outward)
             {
-                if (cell.Row > 0)
                     neighbours.Add(cell);
             }
 
