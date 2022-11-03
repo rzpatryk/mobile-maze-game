@@ -21,6 +21,11 @@ public class SceneChange : MonoBehaviour
         SceneManager.LoadScene("TriangleGrid");
     }
 
+    public void TriangleShape()
+    {
+        SceneManager.LoadScene("TriangleShape");
+    }
+
     public void MainScene()
     {
         SceneManager.LoadScene("Main");
@@ -28,6 +33,10 @@ public class SceneChange : MonoBehaviour
 
     public void HexGrid() {
         SceneManager.LoadScene("HexGrid");
+    }
+    public void HexShape()
+    {
+        SceneManager.LoadScene("HexShape");
     }
 
     public void CircleMaze()
