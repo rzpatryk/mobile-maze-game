@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class MazeManager : MonoBehaviour
 {
+    [SerializeField]
+    private DisplaySquareMaze display;
+    [SerializeField]
+    private GameObject GameManager;
+
+
     private MazeGrid mazeGrid;
     private int row;
     private int column;
     private Algorithms algorithms;
-
-
-    public DisplaySquareMaze display;
-    public GameObject GameManager;
 
 
 
@@ -63,7 +65,16 @@ public class MazeManager : MonoBehaviour
     public void CreateCircleMaze()
     {
         mazeGrid = new PolarGrid(row, 1);
-        algorithms.SetAlgorithm(4, 6);
+        algorithms.SetAlgorithm(2, 6);
+        algorithms.ExecuteAlgorithm(mazeGrid);
+        display.DisplayMaze(mazeGrid);
+        GameManager.GetComponent<GameManager>().StartGame();
+    }
+
+    public void CreateTriangleShape()
+    {
+        mazeGrid = new TriangleMaze(row, column);
+        algorithms.SetAlgorithm(2, 6);
         algorithms.ExecuteAlgorithm(mazeGrid);
         display.DisplayMaze(mazeGrid);
         GameManager.GetComponent<GameManager>().StartGame();
@@ -74,7 +85,7 @@ public class MazeManager : MonoBehaviour
         GameObject maze = GameObject.FindGameObjectWithTag("Maze");
         foreach (Transform child in maze.transform)
         {
-            if (child.name.Equals("WallPrefab(Clone)") || child.name.Equals("Player(Clone)"))
+            if (child.name.Equals("WallPrefab(Clone)") || child.name.Equals("Player(Clone)") || child.name.Equals("GameObject(Clone)"))
                 Destroy(child.gameObject);
         }
         GameManager.GetComponent<GameManager>().BackToLevelSelect();

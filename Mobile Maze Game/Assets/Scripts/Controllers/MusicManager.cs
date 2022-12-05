@@ -5,9 +5,13 @@ using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {
-    public Image musicImage;
-    public Sprite musicOnImage;
-    public Sprite musicOffImage;
+    [SerializeField]
+    private Image musicImage;
+    [SerializeField]
+    private Sprite musicOnImage;
+    [SerializeField]
+    private Sprite musicOffImage;
+
     private bool muted = false;
     // Start is called before the first frame update
     void Start()

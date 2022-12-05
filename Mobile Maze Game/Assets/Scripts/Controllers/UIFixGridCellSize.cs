@@ -9,9 +9,12 @@ public class UIFixGridCellSize : MonoBehaviour
     private RectTransform rect;
     private int rows = 1;
     private int columns = 1;
-    public int elements;
-    public float spacingX;
-    public float spacingY;
+    [SerializeField]
+    private int elements;
+    [SerializeField]
+    private float spacingX;
+    [SerializeField]
+    private float spacingY;
     // Start is called before the first frame update
     void Start()
     {

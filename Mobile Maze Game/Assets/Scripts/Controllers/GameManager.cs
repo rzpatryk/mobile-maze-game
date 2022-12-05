@@ -1,18 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject BackToShapeButton;
-    public GameObject SaveButton;
-    public GameObject BackToLevelSelection;
-    public GameObject LevelSelection;
-    public GameObject Images;
-    public GameObject FinishScreen;
-    public GameObject Background;
-    public GameObject SaveMessage;
-    public GameObject MusicButton;
+    [SerializeField]
+    private GameObject BackToShapeButton;
+    [SerializeField]
+    private GameObject SaveButton;
+    [SerializeField]
+    private GameObject BackToLevelSelection;
+    [SerializeField]
+    private GameObject LevelSelection;
+    [SerializeField]
+    private GameObject Images;
+    [SerializeField]
+    private GameObject FinishScreen;
+    [SerializeField]
+    private GameObject Background;
+    [SerializeField]
+    private GameObject MusicButton;
+    [SerializeField]
+    private GameObject SaveScreen;
+
+
+    public void SaveMessage()
+    {
+        SaveScreen.SetActive(true);
+    }
 
     public void StartGame()
     {
@@ -41,31 +55,7 @@ public class GameManager : MonoBehaviour
         BackToLevelSelection.SetActive(option);
         SaveButton.SetActive(option);
         Background.SetActive(option);
-        SaveButton.SetActive(option);
+        MusicButton.SetActive(option);
     }
-
-    public void Save()
-    {
-        StartCoroutine("CaptureIt");
-    }
-
-    IEnumerator CaptureIt()
-    {
-        yield return null;
-        ConfigUIForSave(false);
-        yield return new WaitForEndOfFrame();
-        string timeStamp = System.DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
-        string fileName = "Screenshot" + timeStamp + ".png";
-        string pathToSave = fileName;
-        Texture2D texture2D = ScreenCapture.CaptureScreenshotAsTexture();
-        NativeGallery.SaveImageToGallery(texture2D, "maze", fileName);
-        //File.Move(Application.persistentDataPath + "/" + fileName, path + "/folder/" + fileName);
-        //yield return new WaitForEndOfFrame();
-        ConfigUIForSave(true);
-        SaveMessage.SetActive(true);
-       
-    }
-
-
 
 }
