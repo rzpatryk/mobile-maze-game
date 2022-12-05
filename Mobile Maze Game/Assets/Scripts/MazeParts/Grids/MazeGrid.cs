@@ -66,7 +66,7 @@ namespace Assets.Scripts.MazeParts.Grids
         public virtual Cell GetRandomCell()
         {
             int r, c;
-            r = GetRandomNumber(0, Row - 1);
+            r = GetRandomNumber(0, Row);
             c = GetRandomNumber(0, Grid[r].Length);
 
 

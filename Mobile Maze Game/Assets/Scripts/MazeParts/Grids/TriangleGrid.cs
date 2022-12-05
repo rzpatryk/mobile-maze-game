@@ -36,17 +36,21 @@ namespace Assets.Scripts.MazeParts.Grids
                 for (int j = 0; j < Grid[i].Length; j++)
                 {
                     TriangleCell cell = (TriangleCell)Grid[i][j];
-                    int row = cell.Row;
-                    int col = cell.Column;
 
-                    if (col > 0 )
-                        cell.Neighbours.Add("West", Grid[row][col - 1]);
-                    if (col < Column - 1 )
-                        cell.Neighbours.Add("East", Grid[row][col + 1]);
-                    if (!cell.Upright() && row < Row - 1)
-                        cell.Neighbours.Add("North", Grid[row + 1][col]);
-                    else if (row > 0 )
-                        cell.Neighbours.Add("South", Grid[row - 1][col]);
+                    if(IsOnGrid(i, j - 1))
+                    {
+                        cell.Neighbours.Add("West", Grid[i][j - 1]);
+                    }
+                    if (IsOnGrid(i,j + 1))
+                    {
+                        cell.Neighbours.Add("East", Grid[i][j + 1]);
+                    }
+                    if (!cell.Upright() && IsOnGrid(i+1, j))
+                        cell.Neighbours.Add("North", Grid[i + 1][j]);
+                    else if(cell.Upright() && IsOnGrid(i-1, j))
+                    {
+                        cell.Neighbours.Add("South", Grid[i - 1][j]);
+                    }
                 }
             }
         }
