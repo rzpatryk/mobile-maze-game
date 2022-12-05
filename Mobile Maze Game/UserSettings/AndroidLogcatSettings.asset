@@ -3,27 +3,177 @@
     "m_SelectedPackage": {
         "deviceId": "2c5000f4",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 20291,
+        "processId": 28065,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "2c5000f4",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 29157,
+            "name": "com.miui.home",
+            "processId": 2733,
             "exited": false
         },
         {
             "deviceId": "2c5000f4",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 17095,
+            "processId": 11190,
+            "exited": true
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 13629,
+            "exited": true
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 16590,
+            "exited": true
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 20513,
+            "exited": true
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 22030,
+            "exited": true
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 12644,
             "exited": false
         },
         {
             "deviceId": "2c5000f4",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 20291,
+            "processId": 13956,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 15602,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 17748,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 20638,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 21697,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 23498,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 24891,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 26356,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 27908,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 30288,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8804,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 9347,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 9820,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 12308,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 17423,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 20138,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 22710,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 23787,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 25274,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 28065,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.google.android.documentsui",
+            "processId": 10653,
             "exited": false
         }
     ],

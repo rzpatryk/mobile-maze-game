@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CircleMaze.unity
     guid: 479f827b584be8c418a15f956b608031
+  - enabled: 1
+    path: Assets/Scenes/HexShape.unity
+    guid: d1f11b272e45cf94a852fc9790add824
+  - enabled: 1
+    path: Assets/Scenes/TriangleShape.unity
+    guid: 09c0649235bd86347aae35a3bcc8736c
   m_configObjects: {}
