@@ -1,23 +1,20 @@
 using Assets.Scripts.MazeParts.Cells;
 using Assets.Scripts.MazeParts.Grids;
+using Assets.Scripts.MazeParts.Path;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class DisplayCircleMaze : DisplaySquareMaze
 {
-
-    public Text TextPrefab;
-    private Text text;
     public override void DisplayMaze(MazeGrid mazeGrid)
     {
-        WallScale = 0.08f;
+        WallScale = 0.15f;
         float theta, inner_radius, outer_radius, theta_ccw, theta_cw;
         float ax, ay, bx, by, cx, cy, dx, dy;
-        SetCellSize(mazeGrid.Row+1, mazeGrid.Column, 0.95f, 0);
+        SetCellSize((mazeGrid.Row+1) * 2, (mazeGrid.Row + 1) * 2, 0.95f, 0.45f);
+        Distance distance = mazeGrid.Grid[1][0].Distances();
+        Cell maxCell = distance.Max();
         for (int i = 0; i < mazeGrid.Grid.Length; i++)
         {
             for (int j = 0; j < mazeGrid.Grid[i].Length; j++)
@@ -25,9 +22,9 @@ public class DisplayCircleMaze : DisplaySquareMaze
                 PolarCell cell = (PolarCell)mazeGrid.Grid[i][j];
                 int row1 = cell.Row;
                 theta = (float)(2 * Math.PI / mazeGrid.Grid[row1].Length);
-                inner_radius = row1 * (CellHeight/ 2); 
+                inner_radius = row1 * (CellHeight);
+                outer_radius = ((row1 + 1) * CellHeight);
 
-                outer_radius = ((row1 + 1) * CellHeight / 2);
 
                 theta_ccw = cell.Column * theta;
                 theta_cw = (cell.Column + 1) * theta;
@@ -41,12 +38,20 @@ public class DisplayCircleMaze : DisplaySquareMaze
                 dx = (float)(outer_radius * Math.Cos(theta_cw));
                 dy = (float)(outer_radius * Math.Sin(theta_cw));
 
+                if(i == 0)
+                {
+                    CreateStartImage(0, 0);
+                }
+                if(cell.Row == maxCell.Row && cell.Column == maxCell.Column)
+                {
+                    CreateEndImage((bx + cx) / 2f, (by + cy) / 2f, true);
+                }
+                if(i== 1 && j == 0)
+                {
+                    CreatePlayer(new Vector3((bx + cx) / 2f, (by + cy) / 2f, -2));
+                }
                 if (cell.Row > 0)
                 {
-                   /* text = Instantiate(TextPrefab, new Vector3(((bx*100) + (cx* 100)) / 2, ((by * 100) + (cy * 100)) / 2, 0), Quaternion.identity);
-                    text.transform.SetParent(GameObject.FindGameObjectWithTag("canvas").transform, false);
-                    text.transform.localScale = new Vector3(CellHeight * 2 * 0.20f, CellHeight * 2 * 0.20f, CellHeight * 2* 0.20f);
-                    text.text = "(" + i + ", " + j + ")";*/
                     Vector3 positionA = new Vector3(ax, ay, -1);
                     Vector3 positionB = new Vector3(bx, by, -1);
                     Vector3 positionC = new Vector3(cx, cy, -1);
@@ -56,12 +61,9 @@ public class DisplayCircleMaze : DisplaySquareMaze
                     {
                         CreateWall(positionB, positionD);
                     }
-                    if (i == 1 || !cell.Linked(cell.Neighbours["Inward"]))
+                    if (cell.Neighbours.ContainsKey("Inward") && !cell.Linked(cell.Neighbours["Inward"]) || (i == 1 && j > 0))
                     {
-
                         CreateWall(positionA, positionC);
-
-
                     }
 
                     if ((cell.Neighbours.ContainsKey("Cw") && !(cell.Linked(cell.Neighbours["Cw"]))) || !cell.Neighbours.ContainsKey("Cw"))
@@ -74,4 +76,7 @@ public class DisplayCircleMaze : DisplaySquareMaze
             }
         }
     }
+
+
+    
 }

@@ -8,17 +8,20 @@ public class DisplayHexMazeGrid : DisplaySquareMaze
 {
     public override void DisplayMaze(MazeGrid mazeGrid)
     {
-        WallScale = 0.15f;
-        SetCellSize(mazeGrid.Row * 2, mazeGrid.Column * 2, 0.85f, 1f);
-
-
+        WallScale = 0.08f;
+        //SetCellSize((mazeGrid.Row + 1) * 2, mazeGrid.Column  * 2, 1, 1);
+        SetCellSize(mazeGrid.Row, mazeGrid.Column, 1, 1);
+        CellHeight -= (CellHeight/2) / mazeGrid.Row;
+        Debug.Log("CellWidth: " + CellWidth);
+        CellWidth -= CellWidth / 3;
+        Debug.Log("CellWidth2: " + CellWidth);
         float cx, cy;
         float x_fw, x_nw, x_ne, x_fe;
         float y_n, y_m, y_s;
 
-        float a_size = CellWidth / 2;
-        float b_size = CellHeight;
-        float height = b_size * 2.0f;
+        float a_size = CellWidth/2;
+        float b_size = CellHeight/2;
+        float height = b_size * 2;
         Vector3 positionA;
         Vector3 positionB;
         for (int i = 0; i < mazeGrid.Grid.Length; i++)
@@ -26,7 +29,7 @@ public class DisplayHexMazeGrid : DisplaySquareMaze
             for (int j = 0; j < mazeGrid.Grid[i].Length; j++)
             {
                 Cell cell = mazeGrid.Grid[i][j];
-                cx = (((a_size * 2) + 3 * cell.Column * a_size)) - ((((a_size * 2) * 3 * mazeGrid.Column) / 2 - a_size) / 2) - (b_size / 2);
+                cx = (CellWidth + 3 * cell.Column * a_size) - (((CellWidth * 3 * mazeGrid.Column) / 2 - a_size) / 2) - (a_size);
                 cy = (b_size + cell.Row * height) - (b_size * mazeGrid.Row) - (b_size / 2);
                 if (cell.Column % 2 != 0)
                     cy += b_size;
@@ -88,7 +91,9 @@ public class DisplayHexMazeGrid : DisplaySquareMaze
                     positionA = new Vector3(x_fe, y_m, -1);
                     positionB = new Vector3(x_ne, y_s, -1);
                     if (i == mazeGrid.Row - 1 && j == mazeGrid.Column - 1)
+                    {
                         CreateWall(positionA, positionB, "End");
+                    }
                     else
                         CreateWall(positionA, positionB);
 

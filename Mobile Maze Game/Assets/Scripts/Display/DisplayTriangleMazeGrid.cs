@@ -1,7 +1,5 @@
 using Assets.Scripts.MazeParts.Cells;
 using Assets.Scripts.MazeParts.Grids;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DisplayTriangleMazeGrid : DisplaySquareMaze
@@ -9,9 +7,8 @@ public class DisplayTriangleMazeGrid : DisplaySquareMaze
     public override void DisplayMaze(MazeGrid mazeGrid)
     {
         WallScale = 0.08f;
-        //Column = mazeGrid.Column;
-        //Row = mazeGrid.Row;
-        SetCellSize(mazeGrid.Row, mazeGrid.Column, 0.9f, 0.72f);
+        //SetCellSize(mazeGrid.Row, mazeGrid.Column, 0.9f, 0.72f);
+        SetCellSize(mazeGrid.Row, mazeGrid.Column+1, 1, 1);
         float width = CellWidth;
 
         float height = CellHeight;
@@ -74,7 +71,9 @@ public class DisplayTriangleMazeGrid : DisplaySquareMaze
                     positionA = new Vector3(eastX, baseY, -1);
                     positionB = new Vector3(midX, apexY, -1);
                     if (i == mazeGrid.Row - 1 && j == mazeGrid.Column - 1)
+                    {
                         CreateWall(positionA, positionB, "End");
+                    }
                     else
                         CreateWall(positionA, positionB);
                 }
@@ -87,8 +86,6 @@ public class DisplayTriangleMazeGrid : DisplaySquareMaze
                     positionA = new Vector3(eastX, baseY, -1);
                     positionB = new Vector3(westX, baseY, -1);
                     CreateWall(positionA, positionB);
-                    //else if (mazeGrid.Row % 2 != 0 && (i == mazeGrid.Row - 3 && j == mazeGrid.Column - 2))
-                    //CreateWall(positionA, positionB, "End");
 
                 }
 

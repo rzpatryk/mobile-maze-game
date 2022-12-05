@@ -1,41 +1,48 @@
 using Assets.Scripts.MazeParts.Cells;
 using Assets.Scripts.MazeParts.Grids;
+using Assets.Scripts.MazeParts.Path;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DisplayHexShape : DisplaySquareMaze
 {
-    public Text TextPrefab;
-    private Text text;
     public override void DisplayMaze(MazeGrid mazeGrid)
     {
-        WallScale = 0.1f;
+        WallScale = 0.08f;
 
-        
-        SetCellSize(mazeGrid.Row, mazeGrid.Column, 0.9f, 0.9f);
 
-        float size2 = CellHeight/4f;
-        float size = CellHeight + 1.2f *size2;
-     
+        SetCellSize(mazeGrid.Row, mazeGrid.Column, 0.9f, 0.45f);
+
+
+        float size = CellHeight + (CellHeight / 3);
+
         float cx, cy;
-      
+
         float a_size = size / 4;
-    
-        float b_size = size/2;
-        float height = b_size * 2f;
+
+        float b_size = size / 2;
+        float width = b_size * 2;
+
+
+
+
         Vector3 positionA;
         Vector3 positionB;
+        Distance distance = mazeGrid.Grid[0][0].Distances();
+        Cell maxCell = distance.Max();
 
         for (int i = 0; i < mazeGrid.Grid.Length; i++)
         {
             for (int j = 0; j < mazeGrid.Grid[i].Length; j++)
             {
                 Cell cell = mazeGrid.Grid[i][j];
-                cx = (b_size + cell.Column *height)- ((mazeGrid.Grid[i].Length / 2f) * height);
-                cy = size/2 + 3 *  cell.Row * a_size - ((mazeGrid.Row/2f * size) - mazeGrid.Row/2f * a_size) - a_size/2;
+                cx = (b_size + cell.Column * width)- ((mazeGrid.Grid[i].Length / 2.0f) * width);
+                cy = size / 2 + 3 * cell.Row * a_size - ((mazeGrid.Row / 2f * size) - mazeGrid.Row / 2.0f * a_size) - a_size / 2;
+                //cy = CellHeight + 3 * cell.Row * a_size; // - ((mazeGrid.Row / 2f * size) - mazeGrid.Row / 2.0f * a_size) - a_size / 2;
 
 
                 float x_west_north = cx - b_size;
@@ -53,13 +60,26 @@ public class DisplayHexShape : DisplaySquareMaze
                 float y_mid_north = cy + size/2;
                 float y_mid_south = cy - size/2;
 
-                
+
+                if (cell.Row == maxCell.Row && cell.Column == maxCell.Column)
+                {
+                    CreateEndImage(cx, cy, true);
+                }
 
                 if ((cell.Neighbours.ContainsKey("West") && !(cell.Linked(cell.Neighbours["West"]))) || !cell.Neighbours.ContainsKey("West"))
                 {
                     positionA = new Vector3(x_west_north, y_west_north, -1);
                     positionB = new Vector3(x_west_south, y_west_south, -1);
-                    CreateWall(positionA, positionB);
+                    if (i == 0 && j == 0)
+                    {
+                        CreatePlayer(new Vector3(cx, cy, -2));
+                        CreateStartImage(cx - size - a_size, cy);
+                        CreateWall(positionA, positionB, "Start");
+                    }
+                    else
+                    {
+                        CreateWall(positionA, positionB);
+                    }
                 }
                 if ((!cell.Neighbours.ContainsKey("East")))
                 {

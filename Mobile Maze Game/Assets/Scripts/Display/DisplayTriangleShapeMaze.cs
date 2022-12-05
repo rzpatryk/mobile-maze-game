@@ -9,18 +9,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DisplayTriangleShapeMaze : DisplaySquareMaze
-{
-
-   /* public GameObject textPrefab;
-    private GameObject text;*/
+{ 
     public override void DisplayMaze(MazeGrid mazeGrid)
     {
         WallScale = 0.1f;
         SetCellSize(mazeGrid.Row, mazeGrid.Column, 0.9f, 0.8f);
         float width = CellWidth;
-        float halfWidth = width / 2f;
         float height = CellHeight;
-        float halfHeight = height / 2f;
+        float halfHeight = height / 2;
 
         float cx, cy;
         float westX, midX, eastX;
@@ -54,22 +50,7 @@ public class DisplayTriangleShapeMaze : DisplaySquareMaze
                     baseY = cy - halfHeight;
                 }
 
-                if (distance.CellIn(cell))
-                {
-                    if (cell.Updown())
-                    {
-                        text = Instantiate(textPrefab, new Vector3(midX + (width * i), baseY - (height/2), -2), Quaternion.identity);
-                    }
-                    else
-                    {
-                        text = Instantiate(textPrefab, new Vector3(midX + (width * i), baseY  + (height/2), -2), Quaternion.identity);
-                    }
-                    text.transform.SetParent(GameObject.FindGameObjectWithTag("Maze").transform, false);
-                    text.transform.localScale = new Vector3(CellHeight , CellHeight , CellHeight);
-                    text.GetComponent<TextMeshPro>().text = distance.GetValue(cell).ToString();
-                }
-
-                if(i == 0 && j == 0)
+                if (i == 0 && j == 0)
                 {
                     CreatePlayer(new Vector3(midX, baseY + halfHeight, -2));
                     CreateStartImage(midX - width*2f, baseY + CellHeight);
@@ -79,11 +60,11 @@ public class DisplayTriangleShapeMaze : DisplaySquareMaze
                 {
                     if (cell.Updown())
                     {
-                        CreateEndImage(midX + (width * i), baseY - halfHeight);
+                        CreateEndImage(midX + (width * i), baseY - halfHeight, true);
                     }
                     else
                     {
-                        CreateEndImage(midX + (width * i), baseY + halfHeight);
+                        CreateEndImage(midX + (width * i), baseY + halfHeight, true);
                     }
                 }
 
