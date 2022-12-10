@@ -1,12 +1,10 @@
 using Assets.Scripts.MazeParts.Grids;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MazeManager : MonoBehaviour
 {
     [SerializeField]
-    private DisplaySquareMaze display;
+    private DisplayMaze display;
     [SerializeField]
     private GameObject GameManager;
 
@@ -32,7 +30,7 @@ public class MazeManager : MonoBehaviour
         mazeGrid = new SquareGrid(row, column);
         algorithms.SetAlgorithm(0, 6);
         algorithms.ExecuteAlgorithm(mazeGrid);
-        display.DisplayMaze(mazeGrid);
+        display.Display(mazeGrid);
         GameManager.GetComponent<GameManager>().StartGame();
     }
 
@@ -41,7 +39,7 @@ public class MazeManager : MonoBehaviour
         mazeGrid = new TriangleGrid(row, column);
         algorithms.SetAlgorithm(2, 6);
         algorithms.ExecuteAlgorithm(mazeGrid);
-        display.DisplayMaze(mazeGrid);
+        display.Display(mazeGrid);
         GameManager.GetComponent<GameManager>().StartGame();
     }
 
@@ -50,7 +48,7 @@ public class MazeManager : MonoBehaviour
         mazeGrid = new HexGrid(row, column);
         algorithms.SetAlgorithm(2, 6);
         algorithms.ExecuteAlgorithm(mazeGrid);
-        display.DisplayMaze(mazeGrid);
+        display.Display(mazeGrid);
         GameManager.GetComponent<GameManager>().StartGame();
     }
     public void CreateHexShape()
@@ -58,7 +56,7 @@ public class MazeManager : MonoBehaviour
         mazeGrid = new HexShape(row, column);
         algorithms.SetAlgorithm(2, 6);
         algorithms.ExecuteAlgorithm(mazeGrid);
-        display.DisplayMaze(mazeGrid);
+        display.Display(mazeGrid);
         GameManager.GetComponent<GameManager>().StartGame();
     }
 
@@ -67,7 +65,7 @@ public class MazeManager : MonoBehaviour
         mazeGrid = new PolarGrid(row, 1);
         algorithms.SetAlgorithm(2, 6);
         algorithms.ExecuteAlgorithm(mazeGrid);
-        display.DisplayMaze(mazeGrid);
+        display.Display(mazeGrid);
         GameManager.GetComponent<GameManager>().StartGame();
     }
 
@@ -76,7 +74,7 @@ public class MazeManager : MonoBehaviour
         mazeGrid = new TriangleMaze(row, column);
         algorithms.SetAlgorithm(2, 6);
         algorithms.ExecuteAlgorithm(mazeGrid);
-        display.DisplayMaze(mazeGrid);
+        display.Display(mazeGrid);
         GameManager.GetComponent<GameManager>().StartGame();
     }
 

@@ -2,13 +2,12 @@ using Assets.Scripts.MazeParts.Cells;
 using Assets.Scripts.MazeParts.Grids;
 using UnityEngine;
 
-public class DisplayTriangleMazeGrid : DisplaySquareMaze
+public class DisplayTriangleMazeGrid : DisplayMaze
 {
-    public override void DisplayMaze(MazeGrid mazeGrid)
+    public override void Display(MazeGrid mazeGrid)
     {
         WallScale = 0.08f;
-        //SetCellSize(mazeGrid.Row, mazeGrid.Column, 0.9f, 0.72f);
-        SetCellSize(mazeGrid.Row, mazeGrid.Column+1, 1, 1);
+        SetCellSize(mazeGrid.Row, mazeGrid.Column + 1);
         float width = CellWidth;
 
         float height = CellHeight;

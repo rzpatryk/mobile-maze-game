@@ -1,17 +1,14 @@
 using Assets.Scripts.MazeParts.Cells;
 using Assets.Scripts.MazeParts.Grids;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DisplayHexMazeGrid : DisplaySquareMaze
+public class DisplayHexMazeGrid : DisplayMaze
 {
-    public override void DisplayMaze(MazeGrid mazeGrid)
+    public override void Display(MazeGrid mazeGrid)
     {
         WallScale = 0.08f;
-        //SetCellSize((mazeGrid.Row + 1) * 2, mazeGrid.Column  * 2, 1, 1);
-        SetCellSize(mazeGrid.Row, mazeGrid.Column, 1, 1);
-        CellHeight -= (CellHeight/2) / mazeGrid.Row;
+        SetCellSize(mazeGrid.Row, mazeGrid.Column);
+        CellHeight -= (CellHeight / 2) / mazeGrid.Row;
         Debug.Log("CellWidth: " + CellWidth);
         CellWidth -= CellWidth / 3;
         Debug.Log("CellWidth2: " + CellWidth);
@@ -19,8 +16,8 @@ public class DisplayHexMazeGrid : DisplaySquareMaze
         float x_fw, x_nw, x_ne, x_fe;
         float y_n, y_m, y_s;
 
-        float a_size = CellWidth/2;
-        float b_size = CellHeight/2;
+        float a_size = CellWidth / 2;
+        float b_size = CellHeight / 2;
         float height = b_size * 2;
         Vector3 positionA;
         Vector3 positionB;

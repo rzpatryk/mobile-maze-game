@@ -5,14 +5,14 @@ using System;
 using UnityEngine;
 
 
-public class DisplayCircleMaze : DisplaySquareMaze
+public class DisplayCircleMaze : DisplayMaze
 {
-    public override void DisplayMaze(MazeGrid mazeGrid)
+    public override void Display(MazeGrid mazeGrid)
     {
         WallScale = 0.15f;
         float theta, inner_radius, outer_radius, theta_ccw, theta_cw;
         float ax, ay, bx, by, cx, cy, dx, dy;
-        SetCellSize((mazeGrid.Row+1) * 2, (mazeGrid.Row + 1) * 2, 0.95f, 0.45f);
+        SetCellSize((mazeGrid.Row + 1) * 2, (mazeGrid.Row + 1) * 2);
         Distance distance = mazeGrid.Grid[1][0].Distances();
         Cell maxCell = distance.Max();
         for (int i = 0; i < mazeGrid.Grid.Length; i++)
@@ -38,15 +38,15 @@ public class DisplayCircleMaze : DisplaySquareMaze
                 dx = (float)(outer_radius * Math.Cos(theta_cw));
                 dy = (float)(outer_radius * Math.Sin(theta_cw));
 
-                if(i == 0)
+                if (i == 0)
                 {
                     CreateStartImage(0, 0);
                 }
-                if(cell.Row == maxCell.Row && cell.Column == maxCell.Column)
+                if (cell.Row == maxCell.Row && cell.Column == maxCell.Column)
                 {
                     CreateEndImage((bx + cx) / 2f, (by + cy) / 2f, true);
                 }
-                if(i== 1 && j == 0)
+                if (i == 1 && j == 0)
                 {
                     CreatePlayer(new Vector3((bx + cx) / 2f, (by + cy) / 2f, -2));
                 }
@@ -76,7 +76,4 @@ public class DisplayCircleMaze : DisplaySquareMaze
             }
         }
     }
-
-
-    
 }

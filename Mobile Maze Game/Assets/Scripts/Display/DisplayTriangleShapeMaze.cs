@@ -1,19 +1,14 @@
 using Assets.Scripts.MazeParts.Cells;
 using Assets.Scripts.MazeParts.Grids;
 using Assets.Scripts.MazeParts.Path;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class DisplayTriangleShapeMaze : DisplaySquareMaze
-{ 
-    public override void DisplayMaze(MazeGrid mazeGrid)
+public class DisplayTriangleShapeMaze : DisplayMaze
+{
+    public override void Display(MazeGrid mazeGrid)
     {
         WallScale = 0.1f;
-        SetCellSize(mazeGrid.Row, mazeGrid.Column, 0.9f, 0.8f);
+        SetCellSize(mazeGrid.Row, mazeGrid.Column);
         float width = CellWidth;
         float height = CellHeight;
         float halfHeight = height / 2;
@@ -53,10 +48,10 @@ public class DisplayTriangleShapeMaze : DisplaySquareMaze
                 if (i == 0 && j == 0)
                 {
                     CreatePlayer(new Vector3(midX, baseY + halfHeight, -2));
-                    CreateStartImage(midX - width*2f, baseY + CellHeight);
+                    CreateStartImage(midX - width * 2f, baseY + CellHeight);
                 }
 
-                if(cell.Row == maxCell.Row && cell.Column == maxCell.Column)
+                if (cell.Row == maxCell.Row && cell.Column == maxCell.Column)
                 {
                     if (cell.Updown())
                     {
