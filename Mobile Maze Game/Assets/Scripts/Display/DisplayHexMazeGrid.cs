@@ -49,15 +49,7 @@ public class DisplayHexMazeGrid : DisplayMaze
                 {
                     CreateEndImage((cx + CellWidth * 2), (cy));
                 }
-
-                if ((cell.Neighbours.ContainsKey("NorthWest") && !(cell.Linked(cell.Neighbours["NorthWest"]))) || !cell.Neighbours.ContainsKey("NorthWest"))
-                {
-                    positionA = new Vector3(x_fw, y_m, -1);
-                    positionB = new Vector3(x_nw, y_s, -1);
-                    CreateWall(positionA, positionB);
-                }
-
-                if ((cell.Neighbours.ContainsKey("SouthWest") && !(cell.Linked(cell.Neighbours["SouthWest"]))) || !cell.Neighbours.ContainsKey("SouthWest"))
+                if (!(cell.Neighbours.ContainsKey("SouthWest")))
                 {
                     positionA = new Vector3(x_fw, y_m, -1);
                     positionB = new Vector3(x_nw, y_n, -1);
@@ -68,8 +60,12 @@ public class DisplayHexMazeGrid : DisplayMaze
                     else
                         CreateWall(positionA, positionB);
                 }
-
-
+                if ((cell.Neighbours.ContainsKey("SouthEast") && !(cell.Linked(cell.Neighbours["SouthEast"]))) || !cell.Neighbours.ContainsKey("SouthEast"))
+                {
+                    positionA = new Vector3(x_ne, y_n, -1);
+                    positionB = new Vector3(x_fe, y_m, -1);
+                    CreateWall(positionA, positionB);
+                }
                 if ((cell.Neighbours.ContainsKey("South") && !(cell.Linked(cell.Neighbours["South"]))) || !cell.Neighbours.ContainsKey("South"))
                 {
                     positionA = new Vector3(x_nw, y_n, -1);
@@ -77,10 +73,18 @@ public class DisplayHexMazeGrid : DisplayMaze
                     CreateWall(positionA, positionB);
 
                 }
-                if ((cell.Neighbours.ContainsKey("SouthEast") && !(cell.Linked(cell.Neighbours["SouthEast"]))) || !cell.Neighbours.ContainsKey("SouthEast"))
+
+                if (!(cell.Neighbours.ContainsKey("North")))
                 {
-                    positionA = new Vector3(x_ne, y_n, -1);
-                    positionB = new Vector3(x_fe, y_m, -1);
+                    positionA = new Vector3(x_ne, y_s, -1);
+                    positionB = new Vector3(x_nw, y_s, -1);
+                    CreateWall(positionA, positionB);
+
+                }
+                if (!(cell.Neighbours.ContainsKey("NorthWest")))
+                {
+                    positionA = new Vector3(x_fw, y_m, -1);
+                    positionB = new Vector3(x_nw, y_s, -1);
                     CreateWall(positionA, positionB);
                 }
                 if ((cell.Neighbours.ContainsKey("NorthEast") && !(cell.Linked(cell.Neighbours["NorthEast"]))) || !cell.Neighbours.ContainsKey("NorthEast"))
@@ -95,14 +99,7 @@ public class DisplayHexMazeGrid : DisplayMaze
                         CreateWall(positionA, positionB);
 
                 }
-                if ((cell.Neighbours.ContainsKey("North") && !(cell.Linked(cell.Neighbours["North"]))) || !cell.Neighbours.ContainsKey("North"))
-                {
-                    positionA = new Vector3(x_ne, y_s, -1);
-                    positionB = new Vector3(x_nw, y_s, -1);
-                    CreateWall(positionA, positionB);
-
-                }
-
+                
             }
         }
     }
