@@ -6,41 +6,40 @@ using UnityEngine;
 public class Algorithms
 {
     private IMazeAlgorithm mazeAlgorithm;
+    private List<IMazeAlgorithm> algorithms;
 
-    public void SetAlgorithm(int min, int max)
+    public Algorithms()
     {
-        int rand = Random.Range(min, max);
+        algorithms = new List<IMazeAlgorithm>();
+        algorithms.Add(new BinaryTree());
+        algorithms.Add(new Sidewinder());
+        algorithms.Add(new HuntAndKill());
+        algorithms.Add(new RecursiveBacktracker());
+        algorithms.Add(new AldousBroder());
+        algorithms.Add(new Wilson());
+        
+    }
 
-        switch (rand)
+    public void SetAlgorithm(string name)
+    {
+        System.Random random = new System.Random();
+        int index;
+
+        if (name.Equals("SquareMaze"))
         {
-            case 0:
-                mazeAlgorithm = new BinaryTree();
-                Debug.Log("BinaryTree");
-                break;
-            case 1:
-                mazeAlgorithm = new Sidewinder();
-                Debug.Log("Sidewinder");
-                break;
-            case 2:
-                mazeAlgorithm = new Wilson();
-                Debug.Log("Wilson");
-                break;
-            case 3:
-                mazeAlgorithm = new AldousBroder();
-                Debug.Log("AldousBroder");
-                break;
-            case 4:
-                mazeAlgorithm = new HuntAndKill();
-                Debug.Log("HuntAndKill");
-                break;
-            case 5:
-                mazeAlgorithm = new RecursiveBacktracker();
-                Debug.Log("RecursiveBacktracker");
-                break;
+            index = random.Next(algorithms.Count);
+            mazeAlgorithm = algorithms[index];
+            Debug.Log(mazeAlgorithm.GetType().Name);
+        }
+        else
+        {
+            index = random.Next(2, algorithms.Count);
+            mazeAlgorithm = algorithms[index];
+            Debug.Log(mazeAlgorithm.GetType().Name);
         }
     }
 
-    public void ExecuteAlgorithm(MazeGrid mazeGrid)
+        public void ExecuteAlgorithm(MazeGrid mazeGrid)
     {
         mazeAlgorithm.CreateMaze(mazeGrid);
     }
