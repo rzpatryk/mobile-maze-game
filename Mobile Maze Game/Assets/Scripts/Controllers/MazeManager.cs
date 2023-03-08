@@ -1,4 +1,5 @@
 using Assets.Scripts.Factory;
+using Assets.Scripts.MazeGenerationAlgorithms;
 using Assets.Scripts.MazeParts.Grids;
 using UnityEngine;
 using UnityEngine.SceneManagement;
