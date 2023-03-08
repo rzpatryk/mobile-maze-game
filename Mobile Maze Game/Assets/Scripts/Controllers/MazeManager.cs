@@ -1,10 +1,12 @@
+using Assets.Scripts.Factory;
 using Assets.Scripts.MazeParts.Grids;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MazeManager : MonoBehaviour
 {
     [SerializeField]
-    private DisplayMaze display;
+    private DisplayMaze Display;
     [SerializeField]
     private GameObject GameManager;
 
@@ -13,6 +15,7 @@ public class MazeManager : MonoBehaviour
     private int row;
     private int column;
     private Algorithms algorithms;
+    private string sceneName;
 
 
 
@@ -23,60 +26,17 @@ public class MazeManager : MonoBehaviour
     void Start()
     {
         algorithms = new Algorithms();
+        sceneName = SceneManager.GetActiveScene().name;
     }
-
-    public void CreateSquareMaze()
+    public void CreateMaze()
     {
-        mazeGrid = new SquareGrid(row, column);
-        algorithms.SetAlgorithm(0, 6);
+        mazeGrid = GridFactory.CreateGrid(sceneName, row, column);
+        algorithms.SetAlgorithm(sceneName);
         algorithms.ExecuteAlgorithm(mazeGrid);
-        display.Display(mazeGrid);
+        Display.Display(mazeGrid);
         GameManager.GetComponent<GameManager>().StartGame();
     }
-
-    public void CreateTriangleGrid()
-    {
-        mazeGrid = new TriangleGrid(row, column);
-        algorithms.SetAlgorithm(2, 6);
-        algorithms.ExecuteAlgorithm(mazeGrid);
-        display.Display(mazeGrid);
-        GameManager.GetComponent<GameManager>().StartGame();
-    }
-
-    public void CreateHexGrid()
-    {
-        mazeGrid = new HexGrid(row, column);
-        algorithms.SetAlgorithm(2, 6);
-        algorithms.ExecuteAlgorithm(mazeGrid);
-        display.Display(mazeGrid);
-        GameManager.GetComponent<GameManager>().StartGame();
-    }
-    public void CreateHexShape()
-    {
-        mazeGrid = new HexShape(row, column);
-        algorithms.SetAlgorithm(2, 6);
-        algorithms.ExecuteAlgorithm(mazeGrid);
-        display.Display(mazeGrid);
-        GameManager.GetComponent<GameManager>().StartGame();
-    }
-
-    public void CreateCircleMaze()
-    {
-        mazeGrid = new PolarGrid(row, 1);
-        algorithms.SetAlgorithm(2, 6);
-        algorithms.ExecuteAlgorithm(mazeGrid);
-        display.Display(mazeGrid);
-        GameManager.GetComponent<GameManager>().StartGame();
-    }
-
-    public void CreateTriangleShape()
-    {
-        mazeGrid = new TriangleMaze(row, column);
-        algorithms.SetAlgorithm(2, 6);
-        algorithms.ExecuteAlgorithm(mazeGrid);
-        display.Display(mazeGrid);
-        GameManager.GetComponent<GameManager>().StartGame();
-    }
+   
 
     public void DeleteMaze()
     {
