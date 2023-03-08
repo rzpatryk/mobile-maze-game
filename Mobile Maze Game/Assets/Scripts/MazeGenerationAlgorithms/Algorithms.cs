@@ -14,11 +14,11 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
             algorithms = new List<IMazeAlgorithm>();
             algorithms.Add(new BinaryTree());
             algorithms.Add(new Sidewinder());
+            algorithms.Add(new RecursiveDivision());
             algorithms.Add(new HuntAndKill());
             algorithms.Add(new RecursiveBacktracker());
             algorithms.Add(new AldousBroder());
             algorithms.Add(new Wilson());
-
         }
 
         public void SetAlgorithm(string name)
@@ -34,7 +34,7 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
             }
             else
             {
-                index = random.Next(2, algorithms.Count);
+                index = random.Next(3, algorithms.Count);
                 mazeAlgorithm = algorithms[index];
                 Debug.Log(mazeAlgorithm.GetType().Name);
             }
