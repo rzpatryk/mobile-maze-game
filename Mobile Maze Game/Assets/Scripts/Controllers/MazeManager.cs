@@ -10,6 +10,8 @@ public class MazeManager : MonoBehaviour
     private DisplayMaze Display;
     [SerializeField]
     private GameObject GameManager;
+    [SerializeField]
+    private ExportMazeToPdf exportMazeToPdf;
 
 
     private MazeGrid mazeGrid;
@@ -38,6 +40,10 @@ public class MazeManager : MonoBehaviour
         GameManager.GetComponent<GameManager>().StartGame();
     }
    
+    public void ExportToPdf()
+    {
+        exportMazeToPdf.SavePdf(sceneName, mazeGrid);
+    }
 
     public void DeleteMaze()
     {

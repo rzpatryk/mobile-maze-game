@@ -2472,19 +2472,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartImages:
-  - {fileID: 21300000, guid: c284b4268b851ca4794b9b6352cfb999, type: 3}
+  - {fileID: 21300000, guid: 964a5fe833129604fa307771122058aa, type: 3}
   - {fileID: 21300000, guid: 38502951f9156444e95099880be1233e, type: 3}
-  - {fileID: 21300000, guid: ccc2cf1130f24a743b898288d546e98a, type: 3}
+  - {fileID: 21300000, guid: 92bc2bced8ad7344091612b5a6388116, type: 3}
   - {fileID: 21300000, guid: d8ab59dfb0a3e2549b22a9fd8e986e42, type: 3}
   - {fileID: 21300000, guid: deb5f770e6fce6148888968a6219a185, type: 3}
-  - {fileID: 21300000, guid: 95d241a5eb31a5348a4d908ad96c92ca, type: 3}
+  - {fileID: 21300000, guid: f667038fab55f4945aaf727f94b25760, type: 3}
   EndImages:
-  - {fileID: 21300000, guid: cca13898aa9d9ca408235ec090801e84, type: 3}
+  - {fileID: 21300000, guid: d0b572aec5a10c94eb74335fbc691775, type: 3}
   - {fileID: 21300000, guid: dea05cc701796f649be853e7c0edc629, type: 3}
   - {fileID: 21300000, guid: dc4e1202308fe0d4ca83cc5abe6c9428, type: 3}
   - {fileID: 21300000, guid: 9148907c90d4fce42a9e7bf9fdb6593c, type: 3}
   - {fileID: 21300000, guid: c9391d83047ebb84f8cb8fe55e4e88eb, type: 3}
-  - {fileID: 21300000, guid: d0466db5b784cfd42a8afed7a653ef19, type: 3}
+  - {fileID: 21300000, guid: dea05cc701796f649be853e7c0edc629, type: 3}
   StartImage: {fileID: 1764685481}
   EndImage: {fileID: 376585330}
 --- !u!114 &660436824 stripped
@@ -2613,11 +2613,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 692713820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705e480c390515943a56a4ac8571afdc, type: 3}
+  m_Script: {fileID: 11500000, guid: 16e51095a1573fc4eb0f04d74923a849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartImage: {fileID: 1764685481}
+  EndImage: {fileID: 376585330}
+  Player: {fileID: 21300000, guid: d15d8414fe927d74f8d1c58703e86c86, type: 3}
   Perm: {fileID: 179438169}
-  GuiManager: {fileID: 226767637}
 --- !u!1 &700531618
 GameObject:
   m_ObjectHideFlags: 0
@@ -3337,10 +3339,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 692713822}
-        m_TargetAssemblyTypeName: SaveMaze, Assembly-CSharp
-        m_MethodName: Save
-        m_Mode: 5
+      - m_Target: {fileID: 1691557137}
+        m_TargetAssemblyTypeName: MazeManager, Assembly-CSharp
+        m_MethodName: ExportToPdf
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5070,6 +5072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Display: {fileID: 1512895988}
   GameManager: {fileID: 226767635}
+  exportMazeToPdf: {fileID: 692713822}
 --- !u!1001 &1725867795
 PrefabInstance:
   m_ObjectHideFlags: 0
