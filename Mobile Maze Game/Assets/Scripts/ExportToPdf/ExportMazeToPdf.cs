@@ -29,14 +29,15 @@ public abstract class ExportMazeToPdf : MonoBehaviour
 
     public abstract void ExportMaze(PdfCanvas canvas, MazeGrid mazeGrid, float pageHeight, float pageWidth);
 
-    public void SavePdf(string gridType, MazeGrid maze)
+    public string SavePdf(string gridType, MazeGrid maze)
     {
+        string savemessage = "";
         if (Perm.GetComponent<PermisionController>().PermissionGranted())
         {
             string path = CreateRootFolder(gridType);
-            CreatePdf(path, gridType, maze);
-
+            savemessage = CreatePdf(path, gridType, maze);
         }
+        return savemessage;
     }
 
     private string CreateRootFolder(string gridType)
@@ -56,10 +57,10 @@ public abstract class ExportMazeToPdf : MonoBehaviour
 
         return mazeTypeFolderPath;
     }
-    private void CreatePdf(string path, string gridType, MazeGrid mazeGrid)
+    private string CreatePdf(string path, string gridType, MazeGrid mazeGrid)
     {
         string timeStamp = System.DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
-        string fileName = gridType + timeStamp + ".pdf";
+        string fileName = gridType + "-"  + timeStamp + ".pdf";
         string filePath = path + "/" + fileName;
         pdfWriter = new PdfWriter(filePath);
         pdfDocument = new PdfDocument(pdfWriter);
@@ -71,6 +72,8 @@ public abstract class ExportMazeToPdf : MonoBehaviour
         ExportMaze(canvas, mazeGrid, pageHeight, pageWidth);
         canvas.ClosePathStroke();
         document.Close();
+
+        return rootFolderName + "/" + gridType  + "/" + fileName;
     }
     public void CreateStartImage(float x, float y)
     {

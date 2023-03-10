@@ -42,7 +42,8 @@ public class MazeManager : MonoBehaviour
    
     public void ExportToPdf()
     {
-        exportMazeToPdf.SavePdf(sceneName, mazeGrid);
+        string message = exportMazeToPdf.SavePdf(sceneName, mazeGrid);
+        GameManager.GetComponent<GameManager>().SaveMessage(message);
     }
 
     public void DeleteMaze()

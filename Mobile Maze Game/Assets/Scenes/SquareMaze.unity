@@ -848,6 +848,7 @@ MonoBehaviour:
   Background: {fileID: 680603477}
   MusicButton: {fileID: 1425324943}
   SaveScreen: {fileID: 1893341902}
+  saveText: {fileID: 1003093088}
 --- !u!1 &236853678
 GameObject:
   m_ObjectHideFlags: 0
@@ -3446,7 +3447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Saved at DCIM/MAZE
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0b0aa1a1a554a254e800b2c990cabf28, type: 2}
   m_sharedMaterial: {fileID: 6466236929946567174, guid: 0b0aa1a1a554a254e800b2c990cabf28, type: 2}
@@ -3473,7 +3474,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5940,7 +5941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.15686275}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

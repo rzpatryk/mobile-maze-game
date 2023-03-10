@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 
@@ -21,11 +22,16 @@ public class GameManager : MonoBehaviour
     private GameObject MusicButton;
     [SerializeField]
     private GameObject SaveScreen;
+    [SerializeField]
+    private GameObject saveText;
 
 
-    public void SaveMessage()
+    public void SaveMessage(string saveMessage)
     {
         SaveScreen.SetActive(true);
+        saveText.GetComponent<TextMeshProUGUI>().text = "Save at :\n" + saveMessage;
+        
+        
     }
 
     public void StartGame()
