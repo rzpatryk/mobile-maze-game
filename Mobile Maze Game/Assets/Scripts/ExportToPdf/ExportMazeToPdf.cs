@@ -82,7 +82,7 @@ public abstract class ExportMazeToPdf : MonoBehaviour
         byte[] startImage = texture.EncodeToPNG();
         ImageData image = ImageDataFactory.Create(startImage);
         Image img = new Image(image);
-        img.SetWidth(cellHeight);
+        img.SetWidth(cellWidth);
         img.SetHeight(cellHeight);
         img.SetFixedPosition(x, y);
         document.Add(img);
@@ -95,7 +95,7 @@ public abstract class ExportMazeToPdf : MonoBehaviour
         byte[] endImage = texture.EncodeToPNG();
         ImageData image = ImageDataFactory.Create(endImage);
         Image img = new Image(image);
-        img.SetWidth(cellHeight);
+        img.SetWidth(cellWidth);
         img.SetHeight(cellHeight);
         img.SetFixedPosition(x, y);
         document.Add(img);
@@ -108,7 +108,7 @@ public abstract class ExportMazeToPdf : MonoBehaviour
         byte[] playerImage = texture.EncodeToPNG();
         ImageData image = ImageDataFactory.Create(playerImage);
         Image img = new Image(image);
-        img.SetWidth(cellHeight);
+        img.SetWidth(cellWidth);
         img.SetHeight(cellHeight);
         img.SetFixedPosition(x, y);
         document.Add(img);

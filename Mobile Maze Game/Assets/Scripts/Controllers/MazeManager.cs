@@ -36,7 +36,7 @@ public class MazeManager : MonoBehaviour
         mazeGrid = GridFactory.CreateGrid(sceneName, row, column);
         algorithms.SetAlgorithm(sceneName);
         algorithms.ExecuteAlgorithm(mazeGrid);
-        Display.Display(mazeGrid);
+        Display.Display(mazeGrid.Grid, mazeGrid.Row, mazeGrid.Column);
         GameManager.GetComponent<GameManager>().StartGame();
     }
    

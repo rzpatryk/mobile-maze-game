@@ -1,14 +1,13 @@
 using Assets.Scripts.MazeParts.Cells;
-using Assets.Scripts.MazeParts.Grids;
 using UnityEngine;
 
 public class DisplayHexMazeGrid : DisplayMaze
 {
-    public override void Display(MazeGrid mazeGrid)
+    public override void Display(Cell[][] mazeGrid, int row, int column)
     {
         WallScale = 0.08f;
-        SetCellSize(mazeGrid.Row, mazeGrid.Column);
-        CellHeight -= (CellHeight / 2) / mazeGrid.Row;
+        SetCellSize(row, column);
+        CellHeight -= (CellHeight / 2) / row;
         Debug.Log("CellWidth: " + CellWidth);
         CellWidth -= CellWidth / 3;
         Debug.Log("CellWidth2: " + CellWidth);
@@ -21,13 +20,13 @@ public class DisplayHexMazeGrid : DisplayMaze
         float height = b_size * 2;
         Vector3 positionA;
         Vector3 positionB;
-        for (int i = 0; i < mazeGrid.Grid.Length; i++)
+        for (int i = 0; i < mazeGrid.Length; i++)
         {
-            for (int j = 0; j < mazeGrid.Grid[i].Length; j++)
+            for (int j = 0; j < mazeGrid[i].Length; j++)
             {
-                Cell cell = mazeGrid.Grid[i][j];
-                cx = (CellWidth + 3 * cell.Column * a_size) - (((CellWidth * 3 * mazeGrid.Column) / 2 - a_size) / 2) - (a_size);
-                cy = (b_size + cell.Row * height) - (b_size * mazeGrid.Row) - (b_size / 2);
+                Cell cell = mazeGrid[i][j];
+                cx = (CellWidth + 3 * cell.Column * a_size) - (((CellWidth * 3 * column) / 2 - a_size) / 2) - (a_size);
+                cy = (b_size + cell.Row * height) - (b_size * row) - (b_size / 2);
                 if (cell.Column % 2 != 0)
                     cy += b_size;
 
@@ -45,7 +44,7 @@ public class DisplayHexMazeGrid : DisplayMaze
                     CreatePlayer(new Vector3(cx, cy, -2));
                 }
 
-                if (i == mazeGrid.Row - 1 && j == mazeGrid.Column - 1)
+                if (i == row - 1 && j == column - 1)
                 {
                     CreateEndImage((cx + CellWidth * 2), (cy));
                 }
@@ -91,7 +90,7 @@ public class DisplayHexMazeGrid : DisplayMaze
                 {
                     positionA = new Vector3(x_fe, y_m, -1);
                     positionB = new Vector3(x_ne, y_s, -1);
-                    if (i == mazeGrid.Row - 1 && j == mazeGrid.Column - 1)
+                    if (i == row - 1 && j == column - 1)
                     {
                         CreateWall(positionA, positionB, "End");
                     }

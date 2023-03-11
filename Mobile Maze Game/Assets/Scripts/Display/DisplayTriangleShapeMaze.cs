@@ -1,14 +1,13 @@
 using Assets.Scripts.MazeParts.Cells;
-using Assets.Scripts.MazeParts.Grids;
 using Assets.Scripts.MazeParts.Path;
 using UnityEngine;
 
 public class DisplayTriangleShapeMaze : DisplayMaze
 {
-    public override void Display(MazeGrid mazeGrid)
+    public override void Display(Cell[][] mazeGrid, int row, int column)
     {
         WallScale = 0.1f;
-        SetCellSize(mazeGrid.Row, mazeGrid.Column);
+        SetCellSize(row, column);
         float width = CellWidth;
         float height = CellHeight;
         float halfHeight = height / 2;
@@ -19,17 +18,17 @@ public class DisplayTriangleShapeMaze : DisplayMaze
         Vector3 positionA;
         Vector3 positionB;
 
-        Distance distance = mazeGrid.Grid[0][0].Distances();
+        Distance distance = mazeGrid[0][0].Distances();
         Cell maxCell = distance.Max();
-        for (int i = 0; i < mazeGrid.Grid.Length; i++)
+        for (int i = 0; i < mazeGrid.Length; i++)
         {
-            for (int j = 0; j < mazeGrid.Grid[i].Length; j++)
+            for (int j = 0; j < mazeGrid[i].Length; j++)
             {
-                TriangleCell cell = (TriangleCell)mazeGrid.Grid[i][j];
+                TriangleCell cell = (TriangleCell)mazeGrid[i][j];
 
-                cx = width + cell.Column * width - (mazeGrid.Column * width / 2) - width / 2;
+                cx = width + cell.Column * width - (column * width / 2) - width / 2;
 
-                cy = halfHeight + cell.Row * height - ((mazeGrid.Row * halfHeight));
+                cy = halfHeight + cell.Row * height - ((row * halfHeight));
                 westX = cx - width;
                 midX = cx;
                 eastX = cx + width;

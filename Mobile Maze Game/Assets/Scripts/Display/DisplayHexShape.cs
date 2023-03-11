@@ -1,15 +1,14 @@
 using Assets.Scripts.MazeParts.Cells;
-using Assets.Scripts.MazeParts.Grids;
 using Assets.Scripts.MazeParts.Path;
 using UnityEngine;
 
 
 public class DisplayHexShape : DisplayMaze
 {
-    public override void Display(MazeGrid mazeGrid)
+    public override void Display(Cell[][] mazeGrid, int row, int column)
     {
         WallScale = 0.08f;
-        SetCellSize(mazeGrid.Row, mazeGrid.Column);
+        SetCellSize(row, column);
         float size = CellHeight + (CellHeight / 3);
         float cx, cy;
         float a_size = size / 4;
@@ -18,16 +17,16 @@ public class DisplayHexShape : DisplayMaze
 
         Vector3 positionA;
         Vector3 positionB;
-        Distance distance = mazeGrid.Grid[0][0].Distances();
+        Distance distance = mazeGrid[0][0].Distances();
         Cell maxCell = distance.Max();
 
-        for (int i = 0; i < mazeGrid.Grid.Length; i++)
+        for (int i = 0; i < mazeGrid.Length; i++)
         {
-            for (int j = 0; j < mazeGrid.Grid[i].Length; j++)
+            for (int j = 0; j < mazeGrid[i].Length; j++)
             {
-                Cell cell = mazeGrid.Grid[i][j];
-                cx = (b_size + cell.Column * width) - ((mazeGrid.Grid[i].Length / 2.0f) * width);
-                cy = size / 2 + 3 * cell.Row * a_size - ((mazeGrid.Row / 2f * size) - mazeGrid.Row / 2.0f * a_size) - a_size / 2;
+                Cell cell = mazeGrid[i][j];
+                cx = (b_size + cell.Column * width) - ((mazeGrid[i].Length / 2.0f) * width);
+                cy = size / 2 + 3 * cell.Row * a_size - ((row / 2f * size) - row / 2.0f * a_size) - a_size / 2;
              
                 float x_west_north = cx - b_size;
                 float y_west_north = cy + a_size;

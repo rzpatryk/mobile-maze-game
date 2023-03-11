@@ -1,4 +1,4 @@
-using Assets.Scripts.MazeParts.Grids;
+using Assets.Scripts.MazeParts.Cells;
 using UnityEngine;
 
 public abstract class DisplayMaze : MonoBehaviour
@@ -26,7 +26,7 @@ public abstract class DisplayMaze : MonoBehaviour
     public float CellWidth { get => cellWidth; set => cellWidth = value; }
     public float WallScale { get => wallScale; set => wallScale = value; }
 
-    public abstract void Display(MazeGrid mazeGrid);
+    public abstract void Display(Cell[][] mazeGrid, int row, int column);
 
     protected void SetCellSize(int row, int col)
     {

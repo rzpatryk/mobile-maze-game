@@ -1,5 +1,4 @@
 using Assets.Scripts.MazeParts.Cells;
-using Assets.Scripts.MazeParts.Grids;
 using Assets.Scripts.MazeParts.Path;
 using System;
 using UnityEngine;
@@ -7,21 +6,21 @@ using UnityEngine;
 
 public class DisplayCircleMaze : DisplayMaze
 {
-    public override void Display(MazeGrid mazeGrid)
+    public override void Display(Cell[][] mazeGrid, int row, int column)
     {
         WallScale = 0.15f;
         float theta, inner_radius, outer_radius, theta_ccw, theta_cw;
         float ax, ay, bx, by, cx, cy, dx, dy;
-        SetCellSize((mazeGrid.Row + 1) * 2, (mazeGrid.Row + 1) * 2);
-        Distance distance = mazeGrid.Grid[1][0].Distances();
+        SetCellSize((row + 1) * 2, (row + 1) * 2);
+        Distance distance = mazeGrid[1][0].Distances();
         Cell maxCell = distance.Max();
-        for (int i = 0; i < mazeGrid.Grid.Length; i++)
+        for (int i = 0; i < mazeGrid.Length; i++)
         {
-            for (int j = 0; j < mazeGrid.Grid[i].Length; j++)
+            for (int j = 0; j < mazeGrid[i].Length; j++)
             {
-                PolarCell cell = (PolarCell)mazeGrid.Grid[i][j];
+                PolarCell cell = (PolarCell)mazeGrid[i][j];
                 int row1 = cell.Row;
-                theta = (float)(2 * Math.PI / mazeGrid.Grid[row1].Length);
+                theta = (float)(2 * Math.PI / mazeGrid[row1].Length);
                 inner_radius = row1 * (CellHeight);
                 outer_radius = ((row1 + 1) * CellHeight);
 
@@ -57,7 +56,7 @@ public class DisplayCircleMaze : DisplayMaze
                     Vector3 positionC = new Vector3(cx, cy, -1);
                     Vector3 positionD = new Vector3(dx, dy, -1);
 
-                    if (i == mazeGrid.Grid.Length - 1)
+                    if (i == mazeGrid.Length - 1)
                     {
                         CreateWall(positionB, positionD);
                     }

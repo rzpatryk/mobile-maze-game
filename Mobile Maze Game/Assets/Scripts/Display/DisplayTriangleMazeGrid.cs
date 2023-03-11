@@ -1,13 +1,12 @@
 using Assets.Scripts.MazeParts.Cells;
-using Assets.Scripts.MazeParts.Grids;
 using UnityEngine;
 
 public class DisplayTriangleMazeGrid : DisplayMaze
 {
-    public override void Display(MazeGrid mazeGrid)
+    public override void Display(Cell[][] mazeGrid, int row, int column)
     {
         WallScale = 0.08f;
-        SetCellSize(mazeGrid.Row, mazeGrid.Column + 1);
+        SetCellSize(row, column + 1);
         float width = CellWidth;
 
         float height = CellHeight;
@@ -17,15 +16,15 @@ public class DisplayTriangleMazeGrid : DisplayMaze
         float apexY, baseY;
         Vector3 positionA;
         Vector3 positionB;
-        for (int i = 0; i < mazeGrid.Grid.Length; i++)
+        for (int i = 0; i < mazeGrid.Length; i++)
         {
-            for (int j = 0; j < mazeGrid.Grid[i].Length; j++)
+            for (int j = 0; j < mazeGrid[i].Length; j++)
             {
-                TriangleCell cell = (TriangleCell)mazeGrid.Grid[i][j];
+                TriangleCell cell = (TriangleCell)mazeGrid[i][j];
 
-                cx = width + cell.Column * width - (mazeGrid.Column * width / 2) - width / 2;
+                cx = width + cell.Column * width - (column * width / 2) - width / 2;
 
-                cy = halfHeight + cell.Row * height - ((mazeGrid.Row * halfHeight));
+                cy = halfHeight + cell.Row * height - ((row * halfHeight));
                 westX = cx - width;
                 midX = cx;
                 eastX = cx + width;
@@ -45,7 +44,7 @@ public class DisplayTriangleMazeGrid : DisplayMaze
                 {
                     CreateStartImage((westX), (apexY));
                 }
-                if (i == mazeGrid.Row - 1 && j == mazeGrid.Column - 1)
+                if (i == row - 1 && j == column - 1)
                 {
                     CreateEndImage((eastX), (apexY));
                 }
@@ -69,7 +68,7 @@ public class DisplayTriangleMazeGrid : DisplayMaze
                 {
                     positionA = new Vector3(eastX, baseY, -1);
                     positionB = new Vector3(midX, apexY, -1);
-                    if (i == mazeGrid.Row - 1 && j == mazeGrid.Column - 1)
+                    if (i == row - 1 && j == column - 1)
                     {
                         CreateWall(positionA, positionB, "End");
                     }
