@@ -6,14 +6,12 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
 {
     public class RecursiveBacktracker : IMazeAlgorithm
     {
-        private Stack<Cell> cellStack;
-        private List<Cell> unvisitedNeighbours;
-        private Cell cell;
-        private Cell neighbour;
         public void CreateMaze(MazeGrid grid)
         {
-            unvisitedNeighbours = new List<Cell>();
-            cellStack = new Stack<Cell>();
+            Cell cell;
+            Cell neighbour;
+            List<Cell> unvisitedNeighbours;
+            Stack<Cell> cellStack = new Stack<Cell>();
             cellStack.Push(grid.GetRandomCell());
 
             while (cellStack.Count > 0 && cellStack.Peek() != null)
@@ -28,7 +26,7 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
                 else
                 {
                     neighbour = unvisitedNeighbours[grid.GetRandomNumber(0, unvisitedNeighbours.Count)];
-                    cell.Link(neighbour, true);
+                    cell.Link(neighbour);
                     cellStack.Push(neighbour);
                 }
                 unvisitedNeighbours.Clear();

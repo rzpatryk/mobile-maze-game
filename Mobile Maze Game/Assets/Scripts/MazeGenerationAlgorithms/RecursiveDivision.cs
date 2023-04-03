@@ -49,7 +49,7 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
                 if (i != passageAt)
                 {
                     cell = mazeGrid.Grid[row + divideNorthOF][column + i];
-                    cell.Unlink(cell.Neighbours["North"], true);
+                    cell.Unlink(cell.Neighbours["North"]);
                 }
             }
             Divide(row, column, divideNorthOF + 1, width);
@@ -67,7 +67,7 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
                 if (i != passageAt)
                 {
                     cell = mazeGrid.Grid[row + i][column + divideEastOF];
-                    cell.Unlink(cell.Neighbours["East"], true);
+                    cell.Unlink(cell.Neighbours["East"]);
                 }
             }
             Divide(row, column, height, divideEastOF + 1);

@@ -8,28 +8,24 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
 {
     public class HuntAndKill : IMazeAlgorithm
     {
-        private Cell current;
-        private Cell neighbour;
-        private Cell cell;
-        private List<Cell> visitedNeighbours;
-        private List<Cell> unvisitedNeighbours;
-        private List<Cell> unvisitedCells;
-        private int number;
         public void CreateMaze(MazeGrid grid)
         {
-            visitedNeighbours = new List<Cell>();
-            unvisitedNeighbours = new List<Cell>();
-            unvisitedCells = new List<Cell>(); ;
-            current = grid.GetRandomCell();
+            List<Cell> visitedNeighbours = new List<Cell>();
+            List<Cell> unvisitedNeighbours;
+            List<Cell> unvisitedCells;
+            Cell neighbour;
+            Cell cell;
+            int randomNumber;
+            Cell current = grid.GetRandomCell();
             while (current != null)
             {
                 current.Visited = true;
                 unvisitedNeighbours = current.GetUnvisitedNeighbours();
                 if (unvisitedNeighbours.Count > 0)
                 {
-                    number = grid.GetRandomNumber(0, unvisitedNeighbours.Count());
-                    neighbour = unvisitedNeighbours[number];
-                    current.Link(neighbour, true);
+                    randomNumber = grid.GetRandomNumber(0, unvisitedNeighbours.Count());
+                    neighbour = unvisitedNeighbours[randomNumber];
+                    current.Link(neighbour);
                     current = neighbour;
                 }
                 else
@@ -49,9 +45,9 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
                     }
                     if (current != null)
                     {
-                        number = grid.GetRandomNumber(0, visitedNeighbours.Count());
-                        neighbour = visitedNeighbours[number];
-                        current.Link(neighbour, true);
+                        randomNumber = grid.GetRandomNumber(0, visitedNeighbours.Count());
+                        neighbour = visitedNeighbours[randomNumber];
+                        current.Link(neighbour);
                     }
                     visitedNeighbours.Clear();
                 }

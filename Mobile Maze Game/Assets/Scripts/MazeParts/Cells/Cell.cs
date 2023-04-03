@@ -36,13 +36,13 @@ namespace Assets.Scripts.MazeParts.Cells
             return neighbours;
         }
 
-        public void Link(Cell cell, bool bidirectional)
+        public void Link(Cell cell, bool bidirectional = true)
         {
             Links.Add(cell);
             if (bidirectional) cell.Link(this, false);
         }
 
-        public void Unlink(Cell cell, bool bidirectional)
+        public void Unlink(Cell cell, bool bidirectional = true)
         {
             Links.Remove(cell);
             if (bidirectional) cell.Unlink(this, false);

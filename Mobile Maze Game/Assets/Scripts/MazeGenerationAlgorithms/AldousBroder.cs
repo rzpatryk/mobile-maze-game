@@ -6,18 +6,16 @@ using System.Linq;
 namespace Assets.Scripts.MazeGenerationAlgorithms
 {
     public class AldousBroder : IMazeAlgorithm
-    {
-        private List<Cell> neighbors;
-        private Cell neighbor;
-        private int random;
-        private int unvisited;
-        private Cell cell;
+    {   
         public void CreateMaze(MazeGrid grid)
         {
-            neighbors = new List<Cell>();
+            int random;
+            Cell neighbor;
+            Cell cell;
+            List<Cell> neighbors = new List<Cell>();
             cell = grid.GetRandomCell();
             cell.Visited = true;
-            unvisited = grid.UnvisitedCellsCount();
+            int unvisited = grid.UnvisitedCellsCount();
             while (unvisited > 0)
             {
 
@@ -26,12 +24,11 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
                 neighbor = neighbors[random];
                 if (neighbor.Visited == false)
                 {
-                    cell.Link(neighbor, true);
+                    cell.Link(neighbor);
                     neighbor.Visited = true;
                     unvisited--;
                 }
                 cell = neighbor;
-
             }
         }
     }

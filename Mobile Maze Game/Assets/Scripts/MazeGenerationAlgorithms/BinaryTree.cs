@@ -6,10 +6,10 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
 {
     public class BinaryTree : IMazeAlgorithm
     {
-        private int randomNbr;
-        private List<Cell> neighbors = new List<Cell>();
         public void CreateMaze(MazeGrid grid)
         {
+            int randomNbr;
+            List<Cell> neighbors = new List<Cell>();
             for (int i = 0; i < grid.Grid.Length; i++)
             {
                 for (int j = 0; j < grid.Grid[i].Length; j++)
@@ -26,7 +26,7 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
                     {
                         randomNbr = grid.GetRandomNumber(0, neighbors.Count);
                         Cell neighbor = neighbors[randomNbr];
-                        cell.Link(neighbor, true);
+                        cell.Link(neighbor);
                     }
                     neighbors.Clear();
                 }
@@ -34,4 +34,3 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
         }
     }
 }
-

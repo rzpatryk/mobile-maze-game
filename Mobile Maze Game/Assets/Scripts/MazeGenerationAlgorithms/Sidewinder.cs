@@ -6,14 +6,14 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
 {
     public class Sidewinder : IMazeAlgorithm
     {
-        private List<Cell> cellsInRun = new List<Cell>();
-        private bool shouldCloseOut;
-        private bool at_eastern_boundary;
-        private bool at_northern_boundary;
-        private int randomNbr;
-        private int cellsToCount;
         public void CreateMaze(MazeGrid grid)
         {
+            List<Cell> cellsInRun = new List<Cell>();
+            bool shouldCloseOut;
+            bool at_eastern_boundary;
+            bool at_northern_boundary;
+            int randomNumber;
+            int cellsToCount;
             for (int r = 0; r < grid.Grid.Length; r++)
             {
                 cellsInRun.Clear();
@@ -30,17 +30,17 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
                     shouldCloseOut = at_eastern_boundary || (!at_northern_boundary && cellsToCount == 0);
                     if (shouldCloseOut)
                     {
-                        randomNbr = grid.GetRandomNumber(0, cellsInRun.Count);
-                        Cell member = cellsInRun[randomNbr];
+                        randomNumber = grid.GetRandomNumber(0, cellsInRun.Count);
+                        Cell member = cellsInRun[randomNumber];
                         if (member.Neighbours.ContainsKey("North"))
                         {
-                            member.Link(member.Neighbours["North"], true);
+                            member.Link(member.Neighbours["North"]);
                             cellsInRun.Clear();
                         }
                     }
                     else
                     {
-                        cell.Link(cell.Neighbours["East"], true);
+                        cell.Link(cell.Neighbours["East"]);
                     }
                 }
             }

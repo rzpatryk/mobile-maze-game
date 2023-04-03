@@ -7,17 +7,15 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
 {
     public class Wilson : IMazeAlgorithm
     {
-
-        private Cell first;
-        private Cell cell;
-        private int position;
-        private int random;
-        private List<Cell> unvisited = new List<Cell>();
-        private List<Cell> path = new List<Cell>();
-        private List<Cell> neighbors = new List<Cell>();
         public void CreateMaze(MazeGrid grid)
         {
-            unvisited = grid.GetUnvisitedCells();
+            Cell first;
+            Cell cell;
+            int position;
+            int random;
+            List<Cell> path = new List<Cell>();
+            List<Cell> neighbors;
+            List<Cell> unvisited = grid.GetUnvisitedCells();
 
             first = unvisited[grid.GetRandomNumber(0, unvisited.Count())];
             unvisited.Remove(first);
@@ -43,7 +41,7 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
                 }
                 for (int i = 0; i < path.Count() - 1; i++)
                 {
-                    path[i].Link(path[i + 1], true);
+                    path[i].Link(path[i + 1]);
                     unvisited.Remove(path[i]);
                 }
                 path.Clear();
