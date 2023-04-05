@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 
 
-public class GameManager : MonoBehaviour
+public class GuiManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject BackToShapeButton;

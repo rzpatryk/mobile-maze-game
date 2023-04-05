@@ -660,7 +660,7 @@ GameObject:
   - component: {fileID: 119576928}
   - component: {fileID: 119576927}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Gui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -903,7 +903,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1691557137}
         m_TargetAssemblyTypeName: MazeManager, Assembly-CSharp
-        m_MethodName: CreateHexGrid
+        m_MethodName: CreateMaze
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

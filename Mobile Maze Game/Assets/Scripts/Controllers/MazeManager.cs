@@ -37,13 +37,13 @@ public class MazeManager : MonoBehaviour
         algorithms.SetAlgorithm(sceneName);
         algorithms.ExecuteAlgorithm(mazeGrid);
         Display.Display(mazeGrid.Grid, mazeGrid.Row, mazeGrid.Column);
-        GameManager.GetComponent<GameManager>().StartGame();
+        GameManager.GetComponent<GuiManager>().StartGame();
     }
    
     public void ExportToPdf()
     {
         string message = exportMazeToPdf.SavePdf(sceneName, mazeGrid);
-        GameManager.GetComponent<GameManager>().SaveMessage(message);
+        GameManager.GetComponent<GuiManager>().SaveMessage(message);
     }
 
     public void DeleteMaze()
@@ -54,7 +54,7 @@ public class MazeManager : MonoBehaviour
             if (child.name.Equals("WallPrefab(Clone)") || child.name.Equals("Player(Clone)") || child.name.Equals("GameObject(Clone)"))
                 Destroy(child.gameObject);
         }
-        GameManager.GetComponent<GameManager>().BackToLevelSelect();
+        GameManager.GetComponent<GuiManager>().BackToLevelSelect();
 
     }
 }

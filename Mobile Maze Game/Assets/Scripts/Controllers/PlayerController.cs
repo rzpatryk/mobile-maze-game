@@ -6,11 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigibody2d;
     private Touch touch;
-    private GameManager gameManager;
+    private GuiManager gameManager;
 
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        gameManager = FindObjectOfType<GuiManager>();
         rigibody2d = GetComponent<Rigidbody2D>();
     }
 
