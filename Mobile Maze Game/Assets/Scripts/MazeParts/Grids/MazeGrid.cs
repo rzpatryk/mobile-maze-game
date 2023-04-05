@@ -81,6 +81,55 @@ namespace Assets.Scripts.MazeParts.Grids
                 return false;
             return true;
         }
+
+        private List<Cell> GetDeadEnds()
+        {
+            List<Cell> deadEnds = new List<Cell>();
+            for(int i = 0; i < Grid.Length; i++)
+            {
+                for(int j = 0; j < Grid[i].Length; j++)
+                {
+                    if(Grid[i][j].Links.Count == 1)
+                    {
+                        deadEnds.Add(Grid[i][j]);
+                    }
+                }
+            }
+
+            return deadEnds;
+        }
+
+        public void RemoveDeadEnds()
+        {
+            List<Cell> deadEnds = GetDeadEnds();
+            List<Cell> neighbours;
+            int randomNumber;
+            foreach(Cell cell in deadEnds)
+            {
+                randomNumber = GetRandomNumber(0, 3);
+                if(randomNumber == 0)
+                {
+                    neighbours = cell.Neighbours.Values.Where(p => !p.Linked(cell)).ToList();
+                    if(neighbours.Count > 0)
+                    {
+                        Cell neighbour = null;
+                        foreach (Cell cellNeigbour in neighbours)
+                        {
+                            if (cellNeigbour.Links.Count == 1)
+                            {
+                                neighbour = cellNeigbour;
+                            }
+                        }
+                        if (neighbour == null)
+                        {
+                            neighbour = neighbours[GetRandomNumber(0, neighbours.Count)];
+                        }
+                        cell.Link(neighbour, true);
+                    }
+                }
+            }
+            
+        }
     }
 
 }

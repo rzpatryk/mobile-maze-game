@@ -11,9 +11,8 @@ public class MazeManager : MonoBehaviour
     [SerializeField]
     private GameObject GameManager;
     [SerializeField]
-    private ExportMazeToPdf exportMazeToPdf;
-
-
+    private ExportMazeToPdf ExportMazeToPdf;
+   
     private MazeGrid mazeGrid;
     private int row;
     private int column;
@@ -25,6 +24,7 @@ public class MazeManager : MonoBehaviour
     public MazeGrid MazeGrid { get => mazeGrid; set => mazeGrid = value; }
     public int Row { get => row; set => row = value; }
     public int Column { get => column; set => column = value; }
+    public bool IsBraid { get; set; }
 
     void Start()
     {
@@ -36,13 +36,18 @@ public class MazeManager : MonoBehaviour
         mazeGrid = GridFactory.CreateGrid(sceneName, row, column);
         algorithms.SetAlgorithm(sceneName);
         algorithms.ExecuteAlgorithm(mazeGrid);
+        if (IsBraid)
+        {
+            mazeGrid.RemoveDeadEnds();
+            IsBraid = false;
+        }
         Display.Display(mazeGrid.Grid, mazeGrid.Row, mazeGrid.Column);
         GameManager.GetComponent<GuiManager>().StartGame();
     }
    
     public void ExportToPdf()
     {
-        string message = exportMazeToPdf.SavePdf(sceneName, mazeGrid);
+        string message = ExportMazeToPdf.SavePdf(sceneName, mazeGrid);
         GameManager.GetComponent<GuiManager>().SaveMessage(message);
     }
 

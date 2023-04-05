@@ -1315,7 +1315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1323,7 +1323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -1371,11 +1371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CreateMaze
+      value: set_IsBraid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateMaze
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -1404,6 +1404,10 @@ PrefabInstance:
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2152,7 +2156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2160,7 +2164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -2208,11 +2212,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CreateMaze
+      value: set_IsBraid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateMaze
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -2241,6 +2245,10 @@ PrefabInstance:
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2794,7 +2802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2802,7 +2810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -2850,11 +2858,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CreateMaze
+      value: set_IsBraid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateMaze
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -2883,6 +2891,10 @@ PrefabInstance:
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4054,7 +4066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -4062,7 +4074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -4110,11 +4122,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CreateMaze
+      value: set_IsBraid
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CreateSquareMaze
+      value: CreateMaze
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -4143,6 +4155,14 @@ PrefabInstance:
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2658321529173955001, guid: df0dc48052104c44888177f7736eb8b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5088,7 +5108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Display: {fileID: 1512895988}
   GameManager: {fileID: 226767635}
-  exportMazeToPdf: {fileID: 985685232}
+  ExportMazeToPdf: {fileID: 0}
 --- !u!1001 &1725867795
 PrefabInstance:
   m_ObjectHideFlags: 0
