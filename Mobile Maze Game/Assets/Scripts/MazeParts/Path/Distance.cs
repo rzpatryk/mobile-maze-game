@@ -10,9 +10,9 @@ namespace Assets.Scripts.MazeParts.Path
     public class Distance
     {
         private Cell root;
-        private Dictionary<Cell, int> Cells;
+        private Dictionary<Cell, int> cells;
 
-        public Dictionary<Cell, int> Cells1 { get => Cells; set => Cells = value; }
+        public Dictionary<Cell, int> Cells { get => cells; set => cells = value; }
 
         public Distance(Cell root)
         {

@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.MazeParts.Path;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Assets.Scripts.MazeParts.Cells
 {
@@ -84,32 +85,26 @@ namespace Assets.Scripts.MazeParts.Cells
 
         public Distance Distances()
         {
-            Distance distances = new Distance(this);
-            List<Cell> frontier = new List<Cell>();
-            List<Cell> links;
-            frontier.Add(this);
-
-            while (frontier.Count > 0)
+            Distance distance = new Distance(this);
+            Dictionary<Cell, int> pending = new Dictionary<Cell, int>();
+            pending.Add(this, 0);
+            while (pending.Count > 0)
             {
-                List<Cell> newFrontier = new List<Cell>();
-                foreach (Cell cell in frontier)
-                {
-                    links = cell.Links;
-                    foreach (Cell linked in links)
-                    {
-                        if (distances.CellIn(linked))
-                        {
-                            continue;
-                        }
-                        int index = distances.GetValue(cell);
+                Cell cell = pending.OrderBy(kvp => kvp.Value).First().Key;
+                pending.Remove(cell);
 
-                        distances.AddCell(linked, index + 1);
-                        newFrontier.Add(linked);
+                foreach (Cell neighbour in cell.Links)
+                {
+                    int total_weight = distance.GetValue(cell) + 1;
+                    if (!distance.Cells.ContainsKey(neighbour) || total_weight < distance.GetValue(cell))
+                    {
+                        pending[neighbour] = total_weight;
+                        distance.Cells[neighbour] = total_weight;
                     }
-                    frontier = newFrontier;
                 }
             }
-            return distances;
+
+            return distance;
         }
     }
 }
