@@ -9,7 +9,7 @@ public class MazeManager : MonoBehaviour
     [SerializeField]
     private DisplayMaze Display;
     [SerializeField]
-    private GameObject GameManager;
+    private GameObject GuiManager;
     [SerializeField]
     private ExportMazeToPdf ExportMazeToPdf;
    
@@ -42,13 +42,13 @@ public class MazeManager : MonoBehaviour
             IsBraid = false;
         }
         Display.Display(mazeGrid.Grid, mazeGrid.Row, mazeGrid.Column);
-        GameManager.GetComponent<GuiManager>().StartGame();
+        GuiManager.GetComponent<GuiManager>().StartGame();
     }
    
     public void ExportToPdf()
     {
         string message = ExportMazeToPdf.SavePdf(sceneName, mazeGrid);
-        GameManager.GetComponent<GuiManager>().SaveMessage(message);
+        GuiManager.GetComponent<GuiManager>().SaveMessage(message);
     }
 
     public void DeleteMaze()
@@ -59,7 +59,7 @@ public class MazeManager : MonoBehaviour
             if (child.name.Equals("WallPrefab(Clone)") || child.name.Equals("Player(Clone)") || child.name.Equals("GameObject(Clone)"))
                 Destroy(child.gameObject);
         }
-        GameManager.GetComponent<GuiManager>().BackToLevelSelect();
+        GuiManager.GetComponent<GuiManager>().BackToLevelSelect();
 
     }
 }

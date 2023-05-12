@@ -845,8 +845,6 @@ MonoBehaviour:
   LevelSelection: {fileID: 882685810}
   Images: {fileID: 612682902}
   FinishScreen: {fileID: 700531618}
-  Background: {fileID: 680603477}
-  MusicButton: {fileID: 1425324943}
   SaveScreen: {fileID: 1893341902}
   saveText: {fileID: 1003093088}
 --- !u!1 &236853678
@@ -4676,11 +4674,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9189218028338195781, guid: b630788d1357959448ced983d6c4e074, type: 3}
   m_PrefabInstance: {fileID: 1425324941}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1425324943 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9189218028338195780, guid: b630788d1357959448ced983d6c4e074, type: 3}
-  m_PrefabInstance: {fileID: 1425324941}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1472015382 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7158724794962594417, guid: 368c63a3eed5d1f428c79c761d1d4634, type: 3}
@@ -5103,8 +5096,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Display: {fileID: 1512895988}
-  GameManager: {fileID: 226767635}
-  ExportMazeToPdf: {fileID: 0}
+  GuiManager: {fileID: 226767635}
+  ExportMazeToPdf: {fileID: 1578204508}
 --- !u!1001 &1725867795
 PrefabInstance:
   m_ObjectHideFlags: 0

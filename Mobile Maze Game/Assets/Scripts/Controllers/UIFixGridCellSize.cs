@@ -7,8 +7,8 @@ public class UIFixGridCellSize : MonoBehaviour
 {
     private GridLayoutGroup grid;
     private RectTransform rect;
-    private int rows = 1;
-    private int columns = 1;
+    private int rows;
+    private int columns;
     [SerializeField]
     private int elements;
     [SerializeField]
@@ -41,11 +41,5 @@ public class UIFixGridCellSize : MonoBehaviour
         
 
         Debug.Log(grid.constraint);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

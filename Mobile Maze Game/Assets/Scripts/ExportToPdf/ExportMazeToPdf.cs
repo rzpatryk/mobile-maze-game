@@ -31,7 +31,7 @@ public abstract class ExportMazeToPdf : MonoBehaviour
 
     public string SavePdf(string gridType, MazeGrid maze)
     {
-        string savemessage = "";
+        string savemessage = null;
         if (Perm.GetComponent<PermisionController>().PermissionGranted())
         {
             string path = CreateRootFolder(gridType);

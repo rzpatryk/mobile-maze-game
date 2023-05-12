@@ -5,7 +5,8 @@ using UnityEngine.Android;
 
 public class PermisionController : MonoBehaviour
 {
-
+    [SerializeField]
+    GuiManager guiManager;
     public bool PermissionGranted()
     {
         if (Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite))
@@ -19,31 +20,13 @@ public class PermisionController : MonoBehaviour
     }
     public void CheckPermission()
     {
-        if (Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite))
+        if (!PermissionGranted())
         {
-            Debug.Log("Granted");
+            PermissionCallbacks callbacks = new PermissionCallbacks();
+            callbacks.PermissionDenied += PermissionCallbacks_PermissionDenied;
+            callbacks.PermissionGranted += PermissionCallbacks_PermissionGranted;
+            Permission.RequestUserPermission(Permission.ExternalStorageWrite, callbacks);
         }
-        else
-        {
-            bool useCallBacks = false;
-            if (!useCallBacks)
-            {
-                Permission.RequestUserPermission(Permission.ExternalStorageWrite);
-            }
-            else
-            {
-                PermissionCallbacks callbacks = new PermissionCallbacks();
-                callbacks.PermissionDenied += PermissionCallbacks_PermissionDenied;
-                callbacks.PermissionGranted += PermissionCallbacks_PermissionGranted;
-                callbacks.PermissionDeniedAndDontAskAgain += PermissionCallbacks_PermissionDeniedAndDontAskAgain;
-                Permission.RequestUserPermission(Permission.ExternalStorageWrite, callbacks);
-            }
-        }
-    }
-
-    internal void PermissionCallbacks_PermissionDeniedAndDontAskAgain(string permissionName)
-    {
-        Debug.Log($"{permissionName} PermissionDeniedAndDontAskAgain");
     }
 
     internal void PermissionCallbacks_PermissionGranted(string permissionName)
@@ -54,5 +37,6 @@ public class PermisionController : MonoBehaviour
     internal void PermissionCallbacks_PermissionDenied(string permissionName)
     {
         Debug.Log($"{permissionName} PermissionCallbacks_PermissionDenied");
+        guiManager.PermissionDanedMessage();
     }
 }

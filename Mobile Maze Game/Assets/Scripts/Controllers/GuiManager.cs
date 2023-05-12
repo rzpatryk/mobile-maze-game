@@ -17,10 +17,6 @@ public class GuiManager : MonoBehaviour
     [SerializeField]
     private GameObject FinishScreen;
     [SerializeField]
-    private GameObject Background;
-    [SerializeField]
-    private GameObject MusicButton;
-    [SerializeField]
     private GameObject SaveScreen;
     [SerializeField]
     private GameObject saveText;
@@ -28,10 +24,17 @@ public class GuiManager : MonoBehaviour
 
     public void SaveMessage(string saveMessage)
     {
+        if (saveMessage != null)
+        {
+            SaveScreen.SetActive(true);
+            saveText.GetComponent<TextMeshProUGUI>().text = "Save at :\n" + saveMessage;
+        }
+    }
+
+    public void PermissionDanedMessage()
+    {
         SaveScreen.SetActive(true);
-        saveText.GetComponent<TextMeshProUGUI>().text = "Save at :\n" + saveMessage;
-        
-        
+        saveText.GetComponent<TextMeshProUGUI>().text = "Failed. Permission Danied";
     }
 
     public void StartGame()
@@ -56,12 +59,4 @@ public class GuiManager : MonoBehaviour
     {
         FinishScreen.SetActive(true);
     }
-    public void ConfigUIForSave(bool option)
-    {
-        BackToLevelSelection.SetActive(option);
-        SaveButton.SetActive(option);
-        Background.SetActive(option);
-        MusicButton.SetActive(option);
-    }
-
 }
