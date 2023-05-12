@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: da7bcbdc7c217d744b0b7639bf742831
+guid: 50083c0692676fe48926d418125a308b
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,8 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Foo
   fontNames:
-  - Foo
+  - Super Bubble
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
