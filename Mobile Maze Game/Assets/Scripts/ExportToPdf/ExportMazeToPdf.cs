@@ -43,7 +43,21 @@ public abstract class ExportMazeToPdf : MonoBehaviour
     private string CreateRootFolder(string gridType)
     {
         AndroidJavaClass androidJavaClass = new AndroidJavaClass("android.os.Environment");
-        string path = androidJavaClass.CallStatic<AndroidJavaObject>("getExternalStorageDirectory").Call<string>("getAbsolutePath");
+        AndroidJavaClass version = new AndroidJavaClass("android.os.Build$VERSION");
+        string path = null;
+        if (version.GetStatic<int>("SDK_INT") >= 30)
+        {
+            //path = androidJavaClass.CallStatic<AndroidJavaObject>("getExternalStoragePublicDirectory").Call<string>("getAbsolutePath");
+            //path = androidJavaClass.CallStatic<AndroidJavaObject>("getExternalStorageDirectory", androidJavaClass.GetStatic<string>("DIRECTORY_D")).Call<string>("getAbsolutePath");
+            //path = androidJavaClass.CallStatic<AndroidJavaObject>("getExternalStorageDirectory").Call<string>("getAbsolutePath");
+            path = androidJavaClass.CallStatic<AndroidJavaObject>("getExternalStoragePublicDirectory", androidJavaClass.GetStatic<string>("DIRECTORY_DOCUMENTS")).Call<string>("getAbsolutePath");
+        }
+        else
+        {
+            path = androidJavaClass.CallStatic<AndroidJavaObject>("getExternalStorageDirectory").Call<string>("getAbsolutePath");
+            
+        }
+
         string directoryPath = path + "/" + rootFolderName;
         if (!Directory.Exists(directoryPath))
         {

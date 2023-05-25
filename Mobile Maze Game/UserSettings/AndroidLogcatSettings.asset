@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "2c5000f4",
+    "m_SelectedDeviceId": "154630576900BFJ",
     "m_SelectedPackage": {
-        "deviceId": "2c5000f4",
+        "deviceId": "154630576900BFJ",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 22672,
+        "processId": 14583,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -75,9 +75,69 @@
             "exited": false
         },
         {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 25769,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 28442,
+            "exited": false
+        },
+        {
             "deviceId": "emulator-5554",
             "name": "com.google.android.documentsui",
             "processId": 10653,
+            "exited": false
+        },
+        {
+            "deviceId": "X4BEC6FIF6WW4PFM",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 22273,
+            "exited": false
+        },
+        {
+            "deviceId": "X4BEC6FIF6WW4PFM",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 24347,
+            "exited": false
+        },
+        {
+            "deviceId": "X4BEC6FIF6WW4PFM",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 26158,
+            "exited": false
+        },
+        {
+            "deviceId": "X4BEC6FIF6WW4PFM",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 32393,
+            "exited": false
+        },
+        {
+            "deviceId": "X4BEC6FIF6WW4PFM",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 2830,
+            "exited": false
+        },
+        {
+            "deviceId": "32006d65c07785d1",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 1044,
+            "exited": false
+        },
+        {
+            "deviceId": "VQTBB20630102846",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 24043,
+            "exited": false
+        },
+        {
+            "deviceId": "154630576900BFJ",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 14583,
             "exited": false
         }
     ],
