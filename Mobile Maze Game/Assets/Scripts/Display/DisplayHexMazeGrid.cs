@@ -8,9 +8,7 @@ public class DisplayHexMazeGrid : DisplayMaze
         WallScale = 0.08f;
         SetCellSize(row, column);
         CellHeight -= (CellHeight / 2) / row;
-        Debug.Log("CellWidth: " + CellWidth);
         CellWidth -= CellWidth / 3;
-        Debug.Log("CellWidth2: " + CellWidth);
         float cx, cy;
         float x_fw, x_nw, x_ne, x_fe;
         float y_n, y_m, y_s;
