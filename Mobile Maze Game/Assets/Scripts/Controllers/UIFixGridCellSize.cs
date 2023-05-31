@@ -37,9 +37,5 @@ public class UIFixGridCellSize : MonoBehaviour
             float cellSize = Mathf.Round((rect.rect.height - (grid.padding.left + grid.padding.right) - (columns - 1)) / rows);
             grid.cellSize = new Vector2(cellSize, cellSize);
         }
-        
-        
-
-        Debug.Log(grid.constraint);
     }
 }

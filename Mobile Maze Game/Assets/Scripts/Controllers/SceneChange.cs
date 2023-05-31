@@ -44,5 +44,10 @@ public class SceneChange : MonoBehaviour
         SceneManager.LoadScene("CircleMaze");
     }
 
-    
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+
 }

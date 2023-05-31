@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "154630576900BFJ",
+    "m_SelectedDeviceId": "2c5000f4",
     "m_SelectedPackage": {
-        "deviceId": "154630576900BFJ",
+        "deviceId": "2c5000f4",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 14583,
+        "processId": 32012,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -84,6 +84,12 @@
             "deviceId": "2c5000f4",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 28442,
+            "exited": false
+        },
+        {
+            "deviceId": "2c5000f4",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 32012,
             "exited": false
         },
         {

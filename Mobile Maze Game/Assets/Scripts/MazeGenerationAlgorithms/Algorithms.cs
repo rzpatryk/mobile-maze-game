@@ -30,13 +30,11 @@ namespace Assets.Scripts.MazeGenerationAlgorithms
             {
                 index = random.Next(algorithms.Count);
                 mazeAlgorithm = algorithms[index];
-                Debug.Log(mazeAlgorithm.GetType().Name);
             }
             else
             {
                 index = random.Next(3, algorithms.Count);
                 mazeAlgorithm = algorithms[index];
-                Debug.Log(mazeAlgorithm.GetType().Name);
             }
         }
 

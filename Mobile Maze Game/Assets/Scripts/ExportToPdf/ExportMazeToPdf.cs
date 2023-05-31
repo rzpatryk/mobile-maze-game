@@ -47,9 +47,6 @@ public abstract class ExportMazeToPdf : MonoBehaviour
         string path = null;
         if (version.GetStatic<int>("SDK_INT") >= 30)
         {
-            //path = androidJavaClass.CallStatic<AndroidJavaObject>("getExternalStoragePublicDirectory").Call<string>("getAbsolutePath");
-            //path = androidJavaClass.CallStatic<AndroidJavaObject>("getExternalStorageDirectory", androidJavaClass.GetStatic<string>("DIRECTORY_D")).Call<string>("getAbsolutePath");
-            //path = androidJavaClass.CallStatic<AndroidJavaObject>("getExternalStorageDirectory").Call<string>("getAbsolutePath");
             path = androidJavaClass.CallStatic<AndroidJavaObject>("getExternalStoragePublicDirectory", androidJavaClass.GetStatic<string>("DIRECTORY_DOCUMENTS")).Call<string>("getAbsolutePath");
         }
         else

@@ -52,8 +52,6 @@ namespace Assets.Scripts.MazeParts.Path
                 }
             }
 
-            //Cell maxCell = Cells.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
-
             return maxCell;
         }
 
